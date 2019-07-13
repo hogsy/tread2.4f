@@ -1619,7 +1619,7 @@
     <CustomBuild Include="Tread3D.reg" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="CJ60Lib\Lib\CJ60StaticLib.lib">
+    <Library Include="CJ60Lib\Lib\CJ60Libd.lib">
       <Filter>Libraries</Filter>
     </Library>
   </ItemGroup>
