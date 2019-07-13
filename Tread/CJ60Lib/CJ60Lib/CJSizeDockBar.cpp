@@ -110,7 +110,7 @@ CSize CCJSizeDockBar::CalcDynamicLayout(int nLength, DWORD nMode)
 		}
 	}
 
-	int cx,cy;
+	int cx = 0, cy = 0;
 	if (nMode & LM_VERTDOCK) {
 		cx = ActualSize ;
 		cy = 32767;
