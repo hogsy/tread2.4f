@@ -5,6 +5,7 @@
 #include "Tread3D.h"
 #include "ConsoleView.h"
 #include "TreadSys.h"
+#include "futils.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -265,7 +266,7 @@ void CConsoleView::OnConsoleDump()
 	rich.SetSel(-1, -1);
 
 	CFile hFile;
-	if(hFile.Open(GetRegString(S_TREAD_PATH) + "\\console.doc", CFile::modeWrite | CFile::modeCreate))
+	if(hFile.Open(FSGetAppPath() + "\\console.doc", CFile::modeWrite | CFile::modeCreate))
 	{
 		hFile.Write((LPCSTR)sBuffer, sBuffer.GetLength());
 		hFile.Close();

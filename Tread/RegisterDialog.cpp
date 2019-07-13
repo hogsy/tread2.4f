@@ -5,6 +5,7 @@
 #include "tread3d.h"
 #include "RegisterDialog.h"
 #include "TreadSys.h"
+#include "futils.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -328,7 +329,7 @@ void CRegisterDialog::CreateKeyFile(CString sKey)
 
 	CFile hFile;
 	CString sPath;
-	sPath.Format("%s\\data3.tread", GetRegString(S_TREAD_PATH));
+	sPath.Format("%s\\data3.tread", FSGetAppPath());
 	if(!hFile.Open(sPath, CFile::modeWrite | CFile::modeCreate | CFile::shareExclusive))
 	{
 		Error("File opening failed!");

@@ -7,6 +7,7 @@
 #include <winreg.h>
 #include <sys\stat.h>
 #include <sys\types.h>
+#include "futils.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -38,7 +39,7 @@ CTipDlg::CTipDlg(CWnd* pParent /*=NULL*/)
 	UINT iFilePos = pApp->GetProfileInt(szSection, szIntFilePos, 0);
 
 	// Now try to open the tips file
-	m_pStream = fopen(GetRegString(S_TREAD_PATH) + "\\data4.tread", "r");
+	m_pStream = fopen(FSGetAppPath() + "\\data4.tread", "r");
 	if (m_pStream == NULL) 
 	{
 		m_strTip.LoadString(CG_IDS_FILE_ABSENT);

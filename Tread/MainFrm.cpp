@@ -32,6 +32,7 @@
 #include "QuickHelpDialog.h"
 #include "ColorCycleController.h"
 #include "PluginAPI.h"
+#include "futils.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -499,7 +500,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	PrintSplashLine("Verify: User License Pak");
 	Debug("Verify: User License Pak\n");
-	sPath = GetRegString(S_TREAD_PATH);
+	sPath = FSGetAppPath();
 	sPath += "\\data1.tread";
 
 	if(hFile.Open(sPath, READ))
@@ -1157,7 +1158,7 @@ void CMainFrame::OnOptionsKeybinding()
 	m_pAccelTable = dlgBind.GetTableRef();
 	m_nAccelCount = dlgBind.GetTableCount();
 
-	sPath = GetRegString(S_TREAD_PATH);
+	sPath = FSGetAppPath();
 	sPath += "\\data1.tread";
 	if(hFile.Open(sPath, WRITE))
 	{
@@ -1226,7 +1227,7 @@ void CMainFrame::OnOptionsColoroptions()
 	CClrDialog dlgTemp;
 	dlgTemp.DoModal();
 
-	GetColorTable()->SaveTable(GetRegString(S_TREAD_PATH) + "\\data2.tread");
+	GetColorTable()->SaveTable(FSGetAppPath() + "\\data2.tread");
 	if(GetMapManager()->GetMapCount() > 0)
 		GetMapManager()->GetCurrentMap()->GetDocument()->UpdateWindows();
 }

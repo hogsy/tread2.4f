@@ -7,6 +7,7 @@
 #include "TreadSys.h"
 #include "Tread3D.h"
 #include <process.h>
+#include "futils.h"
 
 struct SPAWNINFO
 {
@@ -73,7 +74,7 @@ bool RunConsoleProcess(const char* exe, const char* cmdline, const char* wkdir)
 	DWORD nBytesRead;
 	SECURITY_ATTRIBUTES sa;
 
-	sprintf(filename, "%s\\bp%i.txt", (LPCTSTR) GetRegString(S_TREAD_PATH), gNumProc++);
+	sprintf(filename, "%s\\bp%i.txt", (LPCTSTR)FSGetAppPath(), gNumProc++);
 
 	sa.nLength = sizeof(sa);
 	sa.lpSecurityDescriptor = NULL;

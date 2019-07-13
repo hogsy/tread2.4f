@@ -91,7 +91,7 @@ void CColorTable::Initialize()
 
 	Debug("... initing color table\n");
 	CString sPath;
-	sPath.Format("%s\\data2.tread", GetRegString(S_TREAD_PATH));
+	sPath.Format("%s\\data2.tread", FSGetAppPath());
 	if(!LoadTable(sPath))
 	{
 		Debug("... default colors\n");

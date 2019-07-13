@@ -25,6 +25,9 @@ static char THIS_FILE[] = __FILE__;
 #include "EvaluateDialog.h"
 #include "RegisterDialog.h"
 #include "LicenseDialog.h"
+
+#include "futils.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // CTread3DApp
 
@@ -346,7 +349,7 @@ int CTread3DApp::VerifyKeyFile()
 	char pString[65];
 	CString sPath;
 
-	sPath.Format("%s\\data3.tread", GetRegString(S_TREAD_PATH));
+	sPath.Format("%s\\data3.tread", FSGetAppPath());
 	if(!hFile.Open(sPath, CFile::modeRead | CFile::modeNoTruncate | CFile::shareExclusive))
 	{
 		//Error("File opening failed!");

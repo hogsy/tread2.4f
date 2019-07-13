@@ -469,11 +469,11 @@ bool CTreadPluginAPI::Initialize()
 	m_n3DPreDrawFlags = m_n3DPostDrawFlags = 0;
 
 	Debug("pluginAPI: init...\n");
-	Debug("pluginAPI: searching: %s\n", GetRegString(S_TREAD_PATH) + "\\plugins\\*.dll");
+	Debug("pluginAPI: searching: %s\n", FSGetAppPath() + "\\plugins\\*.dll");
 
 	// It's ok if we can't find any.
 	// Must do *.* on recursive searches.
-	if(!FileSearch.BeginFileSearch(GetRegString(S_TREAD_PATH) + "\\plugins", "*.*", true))
+	if(!FileSearch.BeginFileSearch(FSGetAppPath() + "\\plugins", "*.*", true))
 	{
 		PrintSplashLine("no plugins loaded");
 		Debug("pluginAPI: no plugin directory, loading aborted\n");
@@ -491,7 +491,7 @@ bool CTreadPluginAPI::Initialize()
 			continue;
 
 		// Try to load it.
-		LoadPlugin(GetRegString(S_TREAD_PATH) + "\\plugins\\" + sFilename);
+		LoadPlugin(FSGetAppPath() + "\\plugins\\" + sFilename);
 	}
 
 	Debug("pluginAPI: %d plugin(s) loaded\n", m_PluginList.GetCount());

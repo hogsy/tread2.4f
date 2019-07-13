@@ -121,7 +121,7 @@ bool CGameAPI::Initialize()
 	CString sFilename;
 	
 	// Get the gdf path.
-	sGDFPath = GetRegString(S_TREAD_PATH) + "\\scripts";
+	sGDFPath = FSGetAppPath() + "\\scripts";
 	sSearchPath = sGDFPath + "\\*.gdf2";
 	
 	Debug("CGameAPI::Initialize(): GDF2: '" + sGDFPath + "'\n");
@@ -216,7 +216,7 @@ GAMECAP* CGameDefinition::ParseDefCap()
 
 bool CGameDefinition::LoadModels()
 {
-	CString sPath = GetRegString(S_TREAD_PATH) + "\\models\\" + m_sName;
+  CString sPath = FSGetAppPath() + "\\models\\" + m_sName;
 	CString sSearch = sPath + "\\*.tmd2";
 	CString sFilename;
 	CString sLoadFile;
@@ -301,7 +301,7 @@ bool CGameDefinition::SaveModel(MODEL* pModel)
 	CString sFilename;
 	CFile hFile;
 
-	sFilePath = GetRegString(S_TREAD_PATH) + "\\models\\" + m_sName;
+	sFilePath = FSGetAppPath() + "\\models\\" + m_sName;
 
 	// Make sure this dir exists.
 	if(GetFileAttributes(sFilePath) == 0xFFFFFFFF)
@@ -391,7 +391,7 @@ bool CGameDefinition::LoadGameResources()
 		Debug("palette: /palettes/" + m_sPalFile + "\n");
 
 		// Get Tread's path.
-		CString sPath = GetRegString(S_TREAD_PATH);
+		CString sPath = FSGetAppPath();
 	
 		// Read the palette.
 		pPalLump = BloadFile(sPath + "\\palettes\\" + m_sPalFile, nNumBytes);

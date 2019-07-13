@@ -7,6 +7,7 @@
 #include "GL3DWindowRenderer.h"
 #include "GLWindowRenderer.h"
 #include "Tread3D.h"
+#include "futils.h"
 
 #define OPENGL_DLL		"\\opengl32.dll"
 #define GLU_DLL			"\\glu32.dll"
@@ -76,7 +77,7 @@ bool CGLRenderPackage::LoadPackage(CString sName)
 	}
 	else if(sName == "sft_wogl")
 	{
-		if(!LoadGLLibrary(GetRegString(S_TREAD_PATH) + OPENGL_DLL, GetRegString(S_TREAD_PATH) + GLU_DLL))
+		if(!LoadGLLibrary(FSGetAppPath() + OPENGL_DLL, FSGetAppPath() + GLU_DLL))
 			return false;
 		m_sName = sName;
 	}

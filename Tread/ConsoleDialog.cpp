@@ -5,6 +5,7 @@
 #include "Tread3D.h"
 #include "DialogControl.h"
 #include "treadsys.h"
+#include "futils.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -138,7 +139,7 @@ void CConsoleDialog::OnButtonSave()
 	m_ctConsole.GetWindowText(sBuffer);
 
 	CFile hFile;
-	if(hFile.Open(GetRegString(S_TREAD_PATH) + "\\debug.txt", CFile::modeWrite | CFile::modeCreate))
+	if(hFile.Open(FSGetAppPath() + "\\debug.txt", CFile::modeWrite | CFile::modeCreate))
 	{
 		hFile.Write((LPCSTR)sBuffer, sBuffer.GetLength());
 		hFile.Close();

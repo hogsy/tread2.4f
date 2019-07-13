@@ -5,6 +5,7 @@
 #include "tread3d.h"
 //#include "QuickHelpDialog.h"
 #include "DialogControl.h"
+#include "futils.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -176,7 +177,7 @@ void CQuickHelpDialog::OnShowWindow(BOOL bShow, UINT nStatus)
 	if(bShow)
 	{
 		CString sPath;
-		sPath.Format("%s/Help/%s.html", GetRegString(S_TREAD_PATH), m_sFile);
+		sPath.Format("%s/Help/%s.html", FSGetAppPath(), m_sFile);
 		m_HtmlViewer.Navigate(sPath, NULL, NULL, NULL, NULL);
 	}
 }
@@ -199,7 +200,7 @@ void CQuickHelpDialog::OnButtonForward()
 void CQuickHelpDialog::OnButtonHome()
 {
 	CString sPath;
-	sPath.Format("%s/Help/%s.html", GetRegString(S_TREAD_PATH), m_sFile);
+	sPath.Format("%s/Help/%s.html", FSGetAppPath(), m_sFile);
 	m_HtmlViewer.Navigate(sPath, NULL, NULL, NULL, NULL);
 }
 

@@ -107,4 +107,6 @@ bool WriteVec2t(CFile& hFile, vec2_t vVec);
 bool ReadVec3t(CFile& hFile, vec3_t vVec);
 bool WriteVec3t(CFile& hFile, vec3_t vVec);
 
+CString FSGetAppPath();
+
 #endif
