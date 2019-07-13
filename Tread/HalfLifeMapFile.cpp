@@ -10,7 +10,7 @@
 #include "TreadSys.h"
 #include "Tread3DDoc.h"
 #include "GameAPI.h"
-#include <fstream.h>
+#include <fstream>
 
 
 // We override this to remove the "wad" key from the worldspawn.
@@ -26,7 +26,7 @@ int CHalfLifeMapFile::ReadEntity(CEntity** ppEntity, CTread3DDoc* pDocument, CTo
 }
 
 // We override this to write the texture name in UPPERCASE
-bool CHalfLifeMapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument, fstream& file)
+bool CHalfLifeMapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument, std::fstream& file)
 {
 	int i;
 	// Just skip.
@@ -56,7 +56,7 @@ bool CHalfLifeMapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument, fstream& 
 	return true;
 }
 
-bool CHalfLifeMapFile::WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, fstream& file)
+bool CHalfLifeMapFile::WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, std::fstream& file)
 {
 	file << "{\n";
 	file << "\"classname\" \"worldspawn\"\n";

@@ -416,7 +416,7 @@ void CMapView::SetMapXY(float fX, float fY)
 	SetScrollPos(SB_VERT, (int)fY, true);
 }
 
-void CMapView::OnHScroll(UINT nSBCode, int nPos, CScrollBar* pScrollBar) 
+void CMapView::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar) 
 {
 	switch(nSBCode)
 	{
@@ -458,7 +458,7 @@ void CMapView::OnHScroll(UINT nSBCode, int nPos, CScrollBar* pScrollBar)
 	RedrawWindow();
 }
 
-void CMapView::OnVScroll(UINT nSBCode, int nPos, CScrollBar* pScrollBar) 
+void CMapView::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar) 
 {
 	switch(nSBCode)
 	{

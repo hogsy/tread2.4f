@@ -10,7 +10,7 @@
 #include "Brush.h"
 #include "Face.h"
 #include "Tokenizer.h"
-#include <fstream.h>
+#include <fstream>
 
 class CQuakeMapFile : public CBaseTreadMapFile
 {
@@ -37,13 +37,13 @@ public:
 	virtual int ReadBrush(CQBrush** ppBrush, CTread3DDoc* pDocument, CTokenizer& Tokenizer);
 	virtual int ReadPlane(CQBrushPlane* pPlane, CTread3DDoc* pDocument, CTokenizer& Tokenizer);
 
-	virtual bool WriteObject(CBaseObject* pObject, int nClass, CTread3DDoc* pDocument, fstream& file);
-	virtual bool WriteObjectList(CLinkedList<CBaseObject>* pList, int nClass, CTread3DDoc* pDocument, fstream& file);
-	virtual bool WriteGroup(CObjectGroup* pGroup, int nClass, CTread3DDoc* pDocument, fstream& file);
-	virtual bool WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, fstream& file);
-	virtual bool WriteFace(CFace* pFace, CTread3DDoc* pDocument, fstream& file);
-	virtual bool WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument, fstream& file);
-	virtual bool WriteEntity(CEntity* pEntity, CTread3DDoc* pDocument, fstream& file);
+	virtual bool WriteObject(CBaseObject* pObject, int nClass, CTread3DDoc* pDocument, std::fstream& file);
+	virtual bool WriteObjectList(CLinkedList<CBaseObject>* pList, int nClass, CTread3DDoc* pDocument, std::fstream& file);
+	virtual bool WriteGroup(CObjectGroup* pGroup, int nClass, CTread3DDoc* pDocument, std::fstream& file);
+	virtual bool WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, std::fstream& file);
+	virtual bool WriteFace(CFace* pFace, CTread3DDoc* pDocument, std::fstream& file);
+	virtual bool WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument, std::fstream& file);
+	virtual bool WriteEntity(CEntity* pEntity, CTread3DDoc* pDocument, std::fstream& file);
 
 };
 

@@ -16,15 +16,15 @@
 #include "RenderAPI.h"
 #include "Geometry.h"
 #include <math.h>
-#include <fstream.h>
+#include <fstream>
 
 bool CQuakeMapFile::WriteMap(CFile& hFile, TREAD2XHEADERINFO* pHeader, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, CLinkedList<CBaseObject>* pUIObjectList)
 {
 	CString sFilename = hFile.GetFilePath();
 	hFile.Close();
-	fstream file;
+	std::fstream file;
 
-	file.open(sFilename, ios::out);
+	file.open(sFilename, std::ios::out);
 
 	m_nEntityCount=0;
 	m_nBrushCount=0;
@@ -405,12 +405,12 @@ int CQuakeMapFile::ReadPlane(CQBrushPlane* pPlane, CTread3DDoc* pDocument, CToke
 	return QRF_OK;
 }
 
-bool CQuakeMapFile::WriteGroup(CObjectGroup* pGroup, int nClass, CTread3DDoc* pDocument, fstream& file)
+bool CQuakeMapFile::WriteGroup(CObjectGroup* pGroup, int nClass, CTread3DDoc* pDocument, std::fstream& file)
 {
 	return WriteObjectList(pGroup->GetObjectList(), nClass, pDocument, file);
 }
 
-bool CQuakeMapFile::WriteObjectList(CLinkedList<CBaseObject>* pList, int nClass, CTread3DDoc* pDocument, fstream& file)
+bool CQuakeMapFile::WriteObjectList(CLinkedList<CBaseObject>* pList, int nClass, CTread3DDoc* pDocument, std::fstream& file)
 {
 	CBaseObject* pObject;
 	
@@ -423,7 +423,7 @@ bool CQuakeMapFile::WriteObjectList(CLinkedList<CBaseObject>* pList, int nClass,
 	return true;
 }
 
-bool CQuakeMapFile::WriteObject(CBaseObject* pObject, int nClass, CTread3DDoc* pDocument, fstream& file)
+bool CQuakeMapFile::WriteObject(CBaseObject* pObject, int nClass, CTread3DDoc* pDocument, std::fstream& file)
 {
 	switch(pObject->GetObjectClass())
 	{
@@ -444,7 +444,7 @@ bool CQuakeMapFile::WriteObject(CBaseObject* pObject, int nClass, CTread3DDoc* p
 
 }
 
-bool CQuakeMapFile::WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, fstream& file)
+bool CQuakeMapFile::WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, std::fstream& file)
 {	
 	file << "{\n";
 	file << "\"classname\" \"worldspawn\"\n";
@@ -489,7 +489,7 @@ bool CQuakeMapFile::WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CL
 	return true;
 }
 
-bool CQuakeMapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument, fstream& file)
+bool CQuakeMapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument, std::fstream& file)
 {
 	int i;
 	// Just skip.
@@ -519,7 +519,7 @@ bool CQuakeMapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument, fstream& fil
 	return true;
 }
 
-bool CQuakeMapFile::WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument, fstream& file)
+bool CQuakeMapFile::WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument, std::fstream& file)
 {
 	CFace* pFace;
 
@@ -538,7 +538,7 @@ bool CQuakeMapFile::WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument, fstream&
 	return true;
 }
 
-bool CQuakeMapFile::WriteEntity(CEntity* pEntity, CTread3DDoc* pDocument, fstream& file)
+bool CQuakeMapFile::WriteEntity(CEntity* pEntity, CTread3DDoc* pDocument, std::fstream& file)
 {
 	CBaseObject* pObject;
 

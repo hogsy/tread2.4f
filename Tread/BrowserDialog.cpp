@@ -217,7 +217,7 @@ void CBrowserDialog::SetWindowPos(CRect rcPos)
 	bNewPos = true;
 }
 
-void CBrowserDialog::OnShowWindow(bool bShow, UINT nStatus) 
+void CBrowserDialog::OnShowWindow(BOOL bShow, UINT nStatus) 
 {
 	CDialog::OnShowWindow(bShow, nStatus);
 	

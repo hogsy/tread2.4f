@@ -10,7 +10,7 @@
 #include "TreadSys.h"
 #include "Tread3DDoc.h"
 #include <math.h>
-#include <fstream.h>
+#include <fstream>
 
 int CNighthawkMapFile::ReadPlane(CQBrushPlane* pPlane, CTread3DDoc* pDocument, CTokenizer& Tokenizer)
 {
@@ -90,7 +90,7 @@ int CNighthawkMapFile::ReadPlane(CQBrushPlane* pPlane, CTread3DDoc* pDocument, C
 	return QRF_OK;
 }
 
-bool CNighthawkMapFile::WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument, fstream& file)
+bool CNighthawkMapFile::WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument, std::fstream& file)
 {
 	CFace* pFace;
 
@@ -109,7 +109,7 @@ bool CNighthawkMapFile::WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument, fstr
 	return true;
 }
 
-bool CNighthawkMapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument, fstream& file)
+bool CNighthawkMapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument, std::fstream& file)
 {
 	int i;
 	vec3_t* pts;

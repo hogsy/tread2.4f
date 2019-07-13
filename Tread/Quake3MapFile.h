@@ -7,13 +7,13 @@
 #include "TreadMapAPI.h"
 #include "QuakeMapFile.h"
 #include "MapObject.h"
-#include <fstream.h>
+#include <fstream>
 
 class CQuake3MapFile : public CQuakeMapFile
 {
 public:
 
-	virtual bool WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, fstream& file);
+	virtual bool WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, std::fstream& file);
 
 };
 

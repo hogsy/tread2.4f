@@ -156,7 +156,7 @@ CMapManager::CMapManager()
 #ifdef _WIN32
 	m_pProgress = NULL;
 
-	for(n = 0; n < 4; n++)
+	for(int n = 0; n < 4; n++)
 		m_rcView[n] = 0;
 #endif
 }
@@ -179,7 +179,7 @@ CMapManager::CMapManager(int nMax)
 #ifdef _WIN32
 	m_pProgress = NULL;
 	
-	for(n = 0; n < 4; n++)
+	for(int n = 0; n < 4; n++)
 	{
 		m_rcView[n] = 0;
 	}

@@ -172,7 +172,8 @@ void CVisgroupView::OnVisgroupAddcat()
 	char szBuffer[4];
 	HTREEITEM hFound;
 
-	for(int n = 1; n < 101; n++)
+  int n;
+	for(n = 1; n < 101; n++)
 	{
 		itoa(n, szBuffer, 10);
 		sGroup = "Category";

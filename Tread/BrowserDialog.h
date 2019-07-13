@@ -73,7 +73,7 @@ protected:
 	afx_msg void OnSelchangeTexturesizelist();
 	afx_msg void OnSelchangeTexturelistbox();
 	afx_msg void OnDblclkTexturelistbox();
-	afx_msg void OnShowWindow(bool bShow, UINT nStatus);
+	afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
 	afx_msg void OnButtonFilter();
 	afx_msg void OnButtonReset();
 	afx_msg void OnChangeEditFilter();

@@ -1,0 +1,1626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4b649d47-4562-403a-a0b6-87327f305f8f}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{741b0525-d0c9-4d19-9fda-a4244eda382b}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{125ae011-6e38-4b57-845b-b4a9f75399a5}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{d13c4fcd-dd0c-4f1f-8ab6-554ceec00e88}</UniqueIdentifier>
+      <Extensions>.h;.cpp</Extensions>
+    </Filter>
+    <Filter Include="TexAPI">
+      <UniqueIdentifier>{2f55b7ce-7053-4d33-9e81-af32751a41d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexAPI\Quake2">
+      <UniqueIdentifier>{bb5a3c5e-9072-497d-9697-a2aa700782d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexAPI\Targa">
+      <UniqueIdentifier>{85b4bc42-7e25-4d03-b067-b203c9d0598e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexAPI\Quake">
+      <UniqueIdentifier>{c9a4e83b-a787-4f84-a311-65fd9c5fba56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexAPI\Half Life">
+      <UniqueIdentifier>{485a4439-eff1-4339-9caa-b8bf86416095}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexAPI\TexDirectory">
+      <UniqueIdentifier>{652db480-111a-4133-a1b0-abbe9c77252d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexAPI\Sof">
+      <UniqueIdentifier>{206a63d3-b4b2-42ad-be21-555de44b1e78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexAPI\JPEG">
+      <UniqueIdentifier>{d572577d-39f6-4315-a423-25f4c76a5dce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{ee419b9a-e822-4447-8f39-fd45f586d5f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Brush">
+      <UniqueIdentifier>{2fde6824-ab72-43c0-8c74-8165e659d434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Entity">
+      <UniqueIdentifier>{55bebc1c-e80e-4cf0-8e89-2df113aa4c6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Face">
+      <UniqueIdentifier>{29af2855-7a2a-4ed3-9994-82ed4cc125aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Winding">
+      <UniqueIdentifier>{83da5b01-1b07-4d2f-8821-53a5a337cc9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Camera">
+      <UniqueIdentifier>{4d88b63b-03dd-4db0-b9eb-fbb1cad7bf45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\ClipTool">
+      <UniqueIdentifier>{8fd6f8ef-7e80-4e48-9bd1-e1099bca22fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Anchor">
+      <UniqueIdentifier>{79fac861-7bd3-41a3-ba30-694d7e6debbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{754f5486-2c54-490a-8ff6-f61fa022660d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameAPI">
+      <UniqueIdentifier>{b3403623-cfa0-442e-8996-a24f28dacb2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI">
+      <UniqueIdentifier>{28a3ac16-a3f9-4225-b064-81d5981f0de1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\WinGDI">
+      <UniqueIdentifier>{a3e77cc4-1763-422b-b8de-ff92868875b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\WinGDI\GDIBrush">
+      <UniqueIdentifier>{cfd6cd95-425f-4873-8b18-63eda69d43dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\WinGDI\GDIEntity">
+      <UniqueIdentifier>{23075d5b-7f35-445c-879f-4322fd66903a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\WinGDI\GDIWinding">
+      <UniqueIdentifier>{6ac7bc38-00c6-4322-858a-bc348138f53b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\WinGDI\GDIWindowRenderer">
+      <UniqueIdentifier>{7fcf03df-293f-45f5-b79c-d0dd22d3444b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\WinGDI\GDIRenderPackage">
+      <UniqueIdentifier>{67dbfb6b-12fb-4996-ae3b-f5c5ca37e979}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\WinGDI\GDICamera">
+      <UniqueIdentifier>{467a0abb-842b-4f1d-909a-ae0a905221b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\WinGDI\GDIClipTool">
+      <UniqueIdentifier>{4a264fe7-9809-4338-a940-9b539908d7a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\WinGDI\GDIAnchor">
+      <UniqueIdentifier>{702dae0b-ae0b-4d9c-98d2-99a423392451}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL">
+      <UniqueIdentifier>{d8a3eedf-c929-4b51-9ea9-14ff173d4d97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\GLRenderPackage">
+      <UniqueIdentifier>{62799e73-4422-4f8c-806b-213d2383058f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\3D">
+      <UniqueIdentifier>{2e46b1bc-1820-41be-a4ce-66e92c31f026}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\3D\GL3DFace">
+      <UniqueIdentifier>{2c2aaa7c-d9a1-489f-8788-c2baedd445e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\3D\GL3DBrush">
+      <UniqueIdentifier>{3a4e851d-a2db-49db-8aa2-42acf32b2b19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\3D\GL3DWindowRenderer">
+      <UniqueIdentifier>{d34f45b2-3e66-48c4-b475-bac66809b586}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\3D\GL3DEntity">
+      <UniqueIdentifier>{bdb2521e-a56d-4abc-94c6-af26a284d728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\2D">
+      <UniqueIdentifier>{f887f3c2-50d0-4986-9d03-05a69ade7f69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\2D\GLWindowRenderer">
+      <UniqueIdentifier>{85e081e2-ea7b-4e44-bdfe-14827b00494f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\2D\GLFace">
+      <UniqueIdentifier>{47d122f9-67e6-4254-bb53-62205a4a4859}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\2D\GLBrush">
+      <UniqueIdentifier>{8f939812-0702-4e0b-b0d7-30d570f1b72c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\2D\GLCamera">
+      <UniqueIdentifier>{de92c099-aa69-4442-8c9d-12895d969a1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\2D\GLEntity">
+      <UniqueIdentifier>{b7e33d6a-431f-4813-befa-068ea76b159d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\2D\GLClipTool">
+      <UniqueIdentifier>{d9c58e16-60ee-4482-b0ba-60f82c7c79a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderAPI\OpenGL\2D\GLAnchor">
+      <UniqueIdentifier>{827023f1-6bd3-4914-807d-1d9e649f8ae1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VisgroupAPI">
+      <UniqueIdentifier>{a37ba2cd-32e8-4471-ab3d-d4bc8602d796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System">
+      <UniqueIdentifier>{aea478e3-3167-4069-bdad-3d6e46913aed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\HotSpot System">
+      <UniqueIdentifier>{7f4dc25d-145b-4bef-8457-6fa90eb78235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\HotSpot System\CameraModeGenerator">
+      <UniqueIdentifier>{b1a8e1b5-0395-454a-abda-c263b5b65fb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\HotSpot System\VertexModeGenerator">
+      <UniqueIdentifier>{979ba65a-c91d-40eb-ad73-62b2f40c1ab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\HotSpot System\PointerModeGenerator">
+      <UniqueIdentifier>{7d874db1-31b8-4ab9-aa47-dbe9cd080e44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\HotSpot System\ClipToolModeGenerator">
+      <UniqueIdentifier>{c2981128-436d-4c4e-a460-6f9d0921a106}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Mode Change Responders">
+      <UniqueIdentifier>{17411591-db6e-4117-b5b6-8e8358b2b1b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Mode Change Responders\VertexModeResponder">
+      <UniqueIdentifier>{9be7e63d-df3b-4152-851f-1e2b42c99b93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Mode Change Responders\CameraModeResponder">
+      <UniqueIdentifier>{0e413ded-5a74-4c81-8fdf-8c4fe37682f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Mode Change Responders\EntityModeResponder">
+      <UniqueIdentifier>{3395eaff-f5ae-45cd-9256-edf10d6df8be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Mode Change Responders\BrushModeResponder">
+      <UniqueIdentifier>{9da49f2e-4677-49a0-bec3-e3c9f3b5a780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Mode Change Responders\PointerModeResponder">
+      <UniqueIdentifier>{dcba1160-0d9f-4762-9db1-083c0132bbf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Mode Change Responders\ZoomModeResponder">
+      <UniqueIdentifier>{2496a1a1-d23d-4427-8d6a-b7472f04a886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Mode Change Responders\PaintModeResponder">
+      <UniqueIdentifier>{acc42eed-3661-480c-9b25-317dd2d7eae4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Mode Change Responders\ClipToolModeResponder">
+      <UniqueIdentifier>{2f20c6bb-0baf-44c3-adbd-2d5cd6de53af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Mode Change Responders\FaceModeResponder">
+      <UniqueIdentifier>{0882d5c2-9b8b-47fd-9084-48b9ca1c2977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Window Event Responders">
+      <UniqueIdentifier>{7c642bb2-c29a-4559-a7ae-9f60deec5ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Window Event Responders\2D No. 1">
+      <UniqueIdentifier>{7d873472-1c7d-4584-8062-9aa19b0f3acf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Window Event Responders\2D No. 1\Zoom Mode">
+      <UniqueIdentifier>{83aa5161-6ab4-4ec8-89c3-33fcf3dee872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Window Event Responders\2D No. 1\Entity Mode">
+      <UniqueIdentifier>{2d258aad-f730-47d1-a662-177bb6153f5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Window Event Responders\2D No. 1\Pointer Mode">
+      <UniqueIdentifier>{02e53ffb-d947-4367-a658-287ec74e373c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Window Event Responders\2D No. 1\Brush Mode">
+      <UniqueIdentifier>{7ee05c1f-b876-49cc-b31e-d0c8bdec3127}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Window Event Responders\2D No. 1\Vertex Mode">
+      <UniqueIdentifier>{37f7391d-750e-49b4-b8ba-23d7fd4515be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Window Event Responders\2D No. 1\ClipTool Mode">
+      <UniqueIdentifier>{753f845b-1880-4d90-ad9d-fae6f68296c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Window Event Responders\2D No. 1\Camera Mode">
+      <UniqueIdentifier>{2193f3a1-a481-41c6-8f54-ff1cdb45fc08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Window Event Responders\3D No. 1">
+      <UniqueIdentifier>{3cba54a1-6c6e-455b-b3a6-2db12084b941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event System\Window Event Responders\3D No. 1\3DWinResponder">
+      <UniqueIdentifier>{0ec124b8-7ee9-4ac2-9dbe-6b3ece56048d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TreadMapAPI">
+      <UniqueIdentifier>{ae32e590-7cee-41ea-837e-6ed7157ca3c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TreadMapAPI\.trd2">
+      <UniqueIdentifier>{9d947569-e7aa-4a82-adfa-1bd3d6fc80cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TreadMapAPI\Models">
+      <UniqueIdentifier>{0ff6d2da-b184-438a-ba01-4f26612634c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TreadMapAPI\.map">
+      <UniqueIdentifier>{4f779707-6b0b-40c9-8919-28df36510ee8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TreadMapAPI\.map\Quake .map">
+      <UniqueIdentifier>{12aecbf6-8fa4-4320-964a-82d9ba8d17ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TreadMapAPI\.map\Quake2 .map">
+      <UniqueIdentifier>{20dbb49f-b7de-4a99-bc2f-ca6ea9f4a5c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TreadMapAPI\.map\HalfLife .map">
+      <UniqueIdentifier>{3e5dfecb-c344-47eb-99cc-ca698eb67b81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TreadMapAPI\.trd">
+      <UniqueIdentifier>{825d16da-d23a-47c3-a9f2-c33087faa806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TargetAPI">
+      <UniqueIdentifier>{a2941ddc-4a59-44e7-9680-f6eb5086b64a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UndoAPI">
+      <UniqueIdentifier>{9b6c13e1-1e7a-490b-810f-5fa3ed9c8f6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PluginAPI">
+      <UniqueIdentifier>{bf3e0550-e009-4614-94cf-1c0b3c37db5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Splash">
+      <UniqueIdentifier>{9a90e0f9-6882-45a3-8fd2-8e21e1f9c67e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{946b8206-8714-4061-8032-2e552f6e2699}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AccelFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnchorDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnchorView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AngleDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BindDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BrowserDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="byteparser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChildFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClrDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorCycleController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cpu_lib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlStatusBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomStatic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="daikatanareader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dakrle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dakwalreader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultActionResponder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DriveTreeCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityKeyDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EvaluateDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterHotKeyCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlagsDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSetupDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GLPatchMeshRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HighlightComboBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HollowDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="htmlviewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="jpegreader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LicenseDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MapDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="msg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NighthawkMapFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patchmesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pk3file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PreviewDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="qshaders.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Quake3MapFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickHelpDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Registry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SelListCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SetupDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StartupDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StringDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SurfaceDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="targastream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TexComboBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TexListBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TipDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tread3DView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="unzip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VisgroupDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VisgroupView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="geometry.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="MapView.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="mode.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Tread3D.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Tread3DDoc.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="treadsys.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="q2pakfile.cpp">
+      <Filter>TexAPI\Quake2</Filter>
+    </ClCompile>
+    <ClCompile Include="q2texdir.cpp">
+      <Filter>TexAPI\Quake2</Filter>
+    </ClCompile>
+    <ClCompile Include="q2walreader.cpp">
+      <Filter>TexAPI\Quake2</Filter>
+    </ClCompile>
+    <ClCompile Include="targareader.cpp">
+      <Filter>TexAPI\Targa</Filter>
+    </ClCompile>
+    <ClCompile Include="q1pakfile.cpp">
+      <Filter>TexAPI\Quake</Filter>
+    </ClCompile>
+    <ClCompile Include="q1walreader.cpp">
+      <Filter>TexAPI\Quake</Filter>
+    </ClCompile>
+    <ClCompile Include="hlpakfile.cpp">
+      <Filter>TexAPI\Half Life</Filter>
+    </ClCompile>
+    <ClCompile Include="hlwalreader.cpp">
+      <Filter>TexAPI\Half Life</Filter>
+    </ClCompile>
+    <ClCompile Include="gentexdir.cpp">
+      <Filter>TexAPI\TexDirectory</Filter>
+    </ClCompile>
+    <ClCompile Include="sofreader.cpp">
+      <Filter>TexAPI\Sof</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jcomapi.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdapimin.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdapistd.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdatasrc.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdcoefct.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdcolor.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jddctmgr.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdhuff.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdinput.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdmainct.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdmarker.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdmaster.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdpostct.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdsample.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jdtrans.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jerror.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jfdctflt.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jidctflt.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jmemmgr.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jmemnobs.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jpgload.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="jpeg\jutils.cpp">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="pakloader.cpp">
+      <Filter>TexAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="texapi.cpp">
+      <Filter>TexAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="texreader.cpp">
+      <Filter>TexAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>TexAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="Brush.cpp">
+      <Filter>Objects\Brush</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Objects\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Face.cpp">
+      <Filter>Objects\Face</Filter>
+    </ClCompile>
+    <ClCompile Include="winding.cpp">
+      <Filter>Objects\Winding</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Objects\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ClipTool.cpp">
+      <Filter>Objects\ClipTool</Filter>
+    </ClCompile>
+    <ClCompile Include="Anchor.cpp">
+      <Filter>Objects\Anchor</Filter>
+    </ClCompile>
+    <ClCompile Include="mapobject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="futils.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="mathlib.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="szstring.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="tokenizer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="gameapi.cpp">
+      <Filter>GameAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="MapBuild.cpp">
+      <Filter>GameAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIBrushRenderer.cpp">
+      <Filter>RenderAPI\WinGDI\GDIBrush</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIEntityRenderer.cpp">
+      <Filter>RenderAPI\WinGDI\GDIEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIWindingRenderer.cpp">
+      <Filter>RenderAPI\WinGDI\GDIWinding</Filter>
+    </ClCompile>
+    <ClCompile Include="dib24.cpp">
+      <Filter>RenderAPI\WinGDI\GDIWindowRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIWindowRenderer.cpp">
+      <Filter>RenderAPI\WinGDI\GDIWindowRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIRenderPackage.cpp">
+      <Filter>RenderAPI\WinGDI\GDIRenderPackage</Filter>
+    </ClCompile>
+    <ClCompile Include="GDICameraRenderer.cpp">
+      <Filter>RenderAPI\WinGDI\GDICamera</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIClipToolRenderer.cpp">
+      <Filter>RenderAPI\WinGDI\GDIClipTool</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIAnchorRenderer.cpp">
+      <Filter>RenderAPI\WinGDI\GDIAnchor</Filter>
+    </ClCompile>
+    <ClCompile Include="GLRenderPackage.cpp">
+      <Filter>RenderAPI\OpenGL\GLRenderPackage</Filter>
+    </ClCompile>
+    <ClCompile Include="GL3DFaceRenderer.cpp">
+      <Filter>RenderAPI\OpenGL\3D\GL3DFace</Filter>
+    </ClCompile>
+    <ClCompile Include="GL3DBrushRenderer.cpp">
+      <Filter>RenderAPI\OpenGL\3D\GL3DBrush</Filter>
+    </ClCompile>
+    <ClCompile Include="GL3DWindowRenderer.cpp">
+      <Filter>RenderAPI\OpenGL\3D\GL3DWindowRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="GL3DEntityRenderer.cpp">
+      <Filter>RenderAPI\OpenGL\3D\GL3DEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="GLWindowRenderer.cpp">
+      <Filter>RenderAPI\OpenGL\2D\GLWindowRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="GLFaceRenderer.cpp">
+      <Filter>RenderAPI\OpenGL\2D\GLFace</Filter>
+    </ClCompile>
+    <ClCompile Include="GLBrushRenderer.cpp">
+      <Filter>RenderAPI\OpenGL\2D\GLBrush</Filter>
+    </ClCompile>
+    <ClCompile Include="GLCameraRenderer.cpp">
+      <Filter>RenderAPI\OpenGL\2D\GLCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="GLEntityRenderer.cpp">
+      <Filter>RenderAPI\OpenGL\2D\GLEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="GLClipToolRenderer.cpp">
+      <Filter>RenderAPI\OpenGL\2D\GLClipTool</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAnchorRenderer.cpp">
+      <Filter>RenderAPI\OpenGL\2D\GLAnchor</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorTable.cpp">
+      <Filter>RenderAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="renderapi.cpp">
+      <Filter>RenderAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="visgroup.cpp">
+      <Filter>VisgroupAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraModeGenerator.cpp">
+      <Filter>Event System\HotSpot System\CameraModeGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexModeGenerator.cpp">
+      <Filter>Event System\HotSpot System\VertexModeGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="PointerModeGenerator.cpp">
+      <Filter>Event System\HotSpot System\PointerModeGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="ClipToolModeGenerator.cpp">
+      <Filter>Event System\HotSpot System\ClipToolModeGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="HotSpotManager.cpp">
+      <Filter>Event System\HotSpot System</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexModeResponder.cpp">
+      <Filter>Event System\Mode Change Responders\VertexModeResponder</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraModeResponder.cpp">
+      <Filter>Event System\Mode Change Responders\CameraModeResponder</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityModeResponder.cpp">
+      <Filter>Event System\Mode Change Responders\EntityModeResponder</Filter>
+    </ClCompile>
+    <ClCompile Include="BrushModeResponder.cpp">
+      <Filter>Event System\Mode Change Responders\BrushModeResponder</Filter>
+    </ClCompile>
+    <ClCompile Include="PointerModeResponder.cpp">
+      <Filter>Event System\Mode Change Responders\PointerModeResponder</Filter>
+    </ClCompile>
+    <ClCompile Include="ZoomModeResponder.cpp">
+      <Filter>Event System\Mode Change Responders\ZoomModeResponder</Filter>
+    </ClCompile>
+    <ClCompile Include="PaintModeResponder.cpp">
+      <Filter>Event System\Mode Change Responders\PaintModeResponder</Filter>
+    </ClCompile>
+    <ClCompile Include="ClipToolModeResponder.cpp">
+      <Filter>Event System\Mode Change Responders\ClipToolModeResponder</Filter>
+    </ClCompile>
+    <ClCompile Include="FaceModeResponder.cpp">
+      <Filter>Event System\Mode Change Responders\FaceModeResponder</Filter>
+    </ClCompile>
+    <ClCompile Include="ZoomModeWinResponder.cpp">
+      <Filter>Event System\Window Event Responders\2D No. 1\Zoom Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityModeWinResponder.cpp">
+      <Filter>Event System\Window Event Responders\2D No. 1\Entity Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="PointerModeWinResponder.cpp">
+      <Filter>Event System\Window Event Responders\2D No. 1\Pointer Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="BrushModeWinResponder.cpp">
+      <Filter>Event System\Window Event Responders\2D No. 1\Brush Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexModeWinResponder.cpp">
+      <Filter>Event System\Window Event Responders\2D No. 1\Vertex Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="ClipToolModeWinResponder.cpp">
+      <Filter>Event System\Window Event Responders\2D No. 1\ClipTool Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraModeWinResponder.cpp">
+      <Filter>Event System\Window Event Responders\2D No. 1\Camera Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="3DWinResponder.cpp">
+      <Filter>Event System\Window Event Responders\3D No. 1\3DWinResponder</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Event System</Filter>
+    </ClCompile>
+    <ClCompile Include="TreadMap2X.cpp">
+      <Filter>TreadMapAPI\.trd2</Filter>
+    </ClCompile>
+    <ClCompile Include="Models.cpp">
+      <Filter>TreadMapAPI\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="QuakeMapFile.cpp">
+      <Filter>TreadMapAPI\.map\Quake .map</Filter>
+    </ClCompile>
+    <ClCompile Include="Quake2MapFile.cpp">
+      <Filter>TreadMapAPI\.map\Quake2 .map</Filter>
+    </ClCompile>
+    <ClCompile Include="HalfLifeMapFile.cpp">
+      <Filter>TreadMapAPI\.map\HalfLife .map</Filter>
+    </ClCompile>
+    <ClCompile Include="TreadMap1X.cpp">
+      <Filter>TreadMapAPI\.trd</Filter>
+    </ClCompile>
+    <ClCompile Include="TreadMapAPI.cpp">
+      <Filter>TreadMapAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetAPI.cpp">
+      <Filter>TargetAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="UndoAPI.cpp">
+      <Filter>UndoAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="pluginapi.cpp">
+      <Filter>PluginAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="Splash.cpp">
+      <Filter>Splash</Filter>
+    </ClCompile>
+    <ClCompile Include="TransparentWnd.cpp">
+      <Filter>Splash</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tread3D.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AccelFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnchorDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnchorView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AngleDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObjectRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BindDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BrowserDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="byteparser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChildFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientSocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClrDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorCycleController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleEdit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cpu_lib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlStatusBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomStatic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daikatanareader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dakrle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dakwalreader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultActionResponder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DriveTreeCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityKeyDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="entityrenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EvaluateDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterEdit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterHotKeyCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlagsDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSetupDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GLPatchMeshRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HighlightComboBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HollowDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="htmlviewer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="jpegreader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LicenseDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="msg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NighthawkMapFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patchmesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pk3file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PreviewDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="q3pakbase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="q3texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="qshaders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Quake3MapFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickHelpDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Registry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SelListCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SetupDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StartupDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SurfaceDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targastream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TexComboBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TexListBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TipDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tread3DView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="unzip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VisgroupDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VisgroupView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="MapView.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Mode.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="texport.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Tread3D.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Tread3DDoc.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="treadsys.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="q2pakfile.h">
+      <Filter>TexAPI\Quake2</Filter>
+    </ClInclude>
+    <ClInclude Include="q2texdir.h">
+      <Filter>TexAPI\Quake2</Filter>
+    </ClInclude>
+    <ClInclude Include="q2walreader.h">
+      <Filter>TexAPI\Quake2</Filter>
+    </ClInclude>
+    <ClInclude Include="targareader.h">
+      <Filter>TexAPI\Targa</Filter>
+    </ClInclude>
+    <ClInclude Include="q1pakfile.h">
+      <Filter>TexAPI\Quake</Filter>
+    </ClInclude>
+    <ClInclude Include="q1walreader.h">
+      <Filter>TexAPI\Quake</Filter>
+    </ClInclude>
+    <ClInclude Include="hlpakfile.h">
+      <Filter>TexAPI\Half Life</Filter>
+    </ClInclude>
+    <ClInclude Include="hlwalreader.h">
+      <Filter>TexAPI\Half Life</Filter>
+    </ClInclude>
+    <ClInclude Include="gentexdir.h">
+      <Filter>TexAPI\TexDirectory</Filter>
+    </ClInclude>
+    <ClInclude Include="Sofreader.h">
+      <Filter>TexAPI\Sof</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeg\jchuff.h">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeg\jconfig.h">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeg\jdct.h">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeg\jdhuff.h">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeg\jerror.h">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeg\jinclude.h">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeg\jmemsys.h">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeg\jmorecfg.h">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeg\jpegint.h">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeg\jpeglib.h">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeg\jversion.h">
+      <Filter>TexAPI\JPEG</Filter>
+    </ClInclude>
+    <ClInclude Include="pakfile.h">
+      <Filter>TexAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="pakloader.h">
+      <Filter>TexAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="texapi.h">
+      <Filter>TexAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="texdir.h">
+      <Filter>TexAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="texpalette.h">
+      <Filter>TexAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="texreader.h">
+      <Filter>TexAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>TexAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="Brush.h">
+      <Filter>Objects\Brush</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Objects\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Face.h">
+      <Filter>Objects\Face</Filter>
+    </ClInclude>
+    <ClInclude Include="winding.h">
+      <Filter>Objects\Winding</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Objects\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ClipTool.h">
+      <Filter>Objects\ClipTool</Filter>
+    </ClInclude>
+    <ClInclude Include="Anchor.h">
+      <Filter>Objects\Anchor</Filter>
+    </ClInclude>
+    <ClInclude Include="mapobject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="futils.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedlist.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="mathlib.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="szstring.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="tokenizer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="gameapi.h">
+      <Filter>GameAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="MapBuild.h">
+      <Filter>GameAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIBrushRenderer.h">
+      <Filter>RenderAPI\WinGDI\GDIBrush</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIEntityRenderer.h">
+      <Filter>RenderAPI\WinGDI\GDIEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIWindingRenderer.h">
+      <Filter>RenderAPI\WinGDI\GDIWinding</Filter>
+    </ClInclude>
+    <ClInclude Include="dib24.h">
+      <Filter>RenderAPI\WinGDI\GDIWindowRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIWindowRenderer.h">
+      <Filter>RenderAPI\WinGDI\GDIWindowRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIRenderPackage.h">
+      <Filter>RenderAPI\WinGDI\GDIRenderPackage</Filter>
+    </ClInclude>
+    <ClInclude Include="GDICameraRenderer.h">
+      <Filter>RenderAPI\WinGDI\GDICamera</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIClipToolRenderer.h">
+      <Filter>RenderAPI\WinGDI\GDIClipTool</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIAnchorRenderer.h">
+      <Filter>RenderAPI\WinGDI\GDIAnchor</Filter>
+    </ClInclude>
+    <ClInclude Include="GLRenderPackage.h">
+      <Filter>RenderAPI\OpenGL\GLRenderPackage</Filter>
+    </ClInclude>
+    <ClInclude Include="GL3DFaceRenderer.h">
+      <Filter>RenderAPI\OpenGL\3D\GL3DFace</Filter>
+    </ClInclude>
+    <ClInclude Include="GL3DBrushRenderer.h">
+      <Filter>RenderAPI\OpenGL\3D\GL3DBrush</Filter>
+    </ClInclude>
+    <ClInclude Include="GL3DWindowRenderer.h">
+      <Filter>RenderAPI\OpenGL\3D\GL3DWindowRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="GL3DEntityRenderer.h">
+      <Filter>RenderAPI\OpenGL\3D\GL3DEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="GLWindowRenderer.h">
+      <Filter>RenderAPI\OpenGL\2D\GLWindowRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="GLFaceRenderer.h">
+      <Filter>RenderAPI\OpenGL\2D\GLFace</Filter>
+    </ClInclude>
+    <ClInclude Include="GLBrushRenderer.h">
+      <Filter>RenderAPI\OpenGL\2D\GLBrush</Filter>
+    </ClInclude>
+    <ClInclude Include="GLCameraRenderer.h">
+      <Filter>RenderAPI\OpenGL\2D\GLCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="GLEntityRenderer.h">
+      <Filter>RenderAPI\OpenGL\2D\GLEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="GLClipToolRenderer.h">
+      <Filter>RenderAPI\OpenGL\2D\GLClipTool</Filter>
+    </ClInclude>
+    <ClInclude Include="GLAnchorRenderer.h">
+      <Filter>RenderAPI\OpenGL\2D\GLAnchor</Filter>
+    </ClInclude>
+    <ClInclude Include="wogl.h">
+      <Filter>RenderAPI\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorTable.h">
+      <Filter>RenderAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="renderapi.h">
+      <Filter>RenderAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="visgroup.h">
+      <Filter>VisgroupAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraModeGenerator.h">
+      <Filter>Event System\HotSpot System\CameraModeGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexModeGenerator.h">
+      <Filter>Event System\HotSpot System\VertexModeGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="PointerModeGenerator.h">
+      <Filter>Event System\HotSpot System\PointerModeGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="ClipToolModeGenerator.h">
+      <Filter>Event System\HotSpot System\ClipToolModeGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="HotSpotManager.h">
+      <Filter>Event System\HotSpot System</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexModeResponder.h">
+      <Filter>Event System\Mode Change Responders\VertexModeResponder</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraModeResponder.h">
+      <Filter>Event System\Mode Change Responders\CameraModeResponder</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityModeResponder.h">
+      <Filter>Event System\Mode Change Responders\EntityModeResponder</Filter>
+    </ClInclude>
+    <ClInclude Include="BrushModeResponder.h">
+      <Filter>Event System\Mode Change Responders\BrushModeResponder</Filter>
+    </ClInclude>
+    <ClInclude Include="PointerModeResponder.h">
+      <Filter>Event System\Mode Change Responders\PointerModeResponder</Filter>
+    </ClInclude>
+    <ClInclude Include="ZoomModeResponder.h">
+      <Filter>Event System\Mode Change Responders\ZoomModeResponder</Filter>
+    </ClInclude>
+    <ClInclude Include="PaintModeResponder.h">
+      <Filter>Event System\Mode Change Responders\PaintModeResponder</Filter>
+    </ClInclude>
+    <ClInclude Include="ClipToolModeResponder.h">
+      <Filter>Event System\Mode Change Responders\ClipToolModeResponder</Filter>
+    </ClInclude>
+    <ClInclude Include="FaceModeResponder.h">
+      <Filter>Event System\Mode Change Responders\FaceModeResponder</Filter>
+    </ClInclude>
+    <ClInclude Include="ZoomModeWinResponder.h">
+      <Filter>Event System\Window Event Responders\2D No. 1\Zoom Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityModeWinResponder.h">
+      <Filter>Event System\Window Event Responders\2D No. 1\Entity Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="PointerModeWinResponder.h">
+      <Filter>Event System\Window Event Responders\2D No. 1\Pointer Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="BrushModeWinResponder.h">
+      <Filter>Event System\Window Event Responders\2D No. 1\Brush Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexModeWinResponder.h">
+      <Filter>Event System\Window Event Responders\2D No. 1\Vertex Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="ClipToolModeWinResponder.h">
+      <Filter>Event System\Window Event Responders\2D No. 1\ClipTool Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraModeWinResponder.h">
+      <Filter>Event System\Window Event Responders\2D No. 1\Camera Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="3DWinResponder.h">
+      <Filter>Event System\Window Event Responders\3D No. 1\3DWinResponder</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Event System</Filter>
+    </ClInclude>
+    <ClInclude Include="TreadMap2X.h">
+      <Filter>TreadMapAPI\.trd2</Filter>
+    </ClInclude>
+    <ClInclude Include="Models.h">
+      <Filter>TreadMapAPI\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="QuakeMapFile.h">
+      <Filter>TreadMapAPI\.map\Quake .map</Filter>
+    </ClInclude>
+    <ClInclude Include="Quake2MapFile.h">
+      <Filter>TreadMapAPI\.map\Quake2 .map</Filter>
+    </ClInclude>
+    <ClInclude Include="HalfLifeMapFile.h">
+      <Filter>TreadMapAPI\.map\HalfLife .map</Filter>
+    </ClInclude>
+    <ClInclude Include="TreadMap1X.h">
+      <Filter>TreadMapAPI\.trd</Filter>
+    </ClInclude>
+    <ClInclude Include="TreadMapAPI.h">
+      <Filter>TreadMapAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetAPI.h">
+      <Filter>TargetAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="UndoAPI.h">
+      <Filter>UndoAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="pluginapi.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="TreadAPI_Template.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="Splash.h">
+      <Filter>Splash</Filter>
+    </ClInclude>
+    <ClInclude Include="TransparentWnd.h">
+      <Filter>Splash</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\about.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\aboutclose.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\align.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\back.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\background.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap_c.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\btn_arro.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\btn_arrow.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\btn_explorer.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\build.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\button_images.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\check2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\CheckButtons.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\checkbuttons2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\cj_logo.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\clear.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\clip.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\close.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\connection.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\devtool.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\drag.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\drives.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\entity.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\forward.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Globe.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\home.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00001.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon_ont.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon_tex.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\il_tab2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\keyboard.ICO">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\litebulb.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\minimize.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\modebar.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\objects.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ontop.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\palette.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\pallete2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\placement.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\poionter.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\quickhelp.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Splsh16.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tabctrl.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\texlock.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textureicons.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\toolbar1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\toolbar2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tread.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Tread3D.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Tread3DDoc.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\treadv2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\TreadV2Mask.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\vertsign.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\visgroupicons.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="JoeLog.txt" />
+    <Text Include="JoeToDo.txt" />
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\arrow.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\blue_arrow.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="console.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\console.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\console2.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\cursor1.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\hsplitba.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\pmove.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\Tread3D.rc2">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\vsplitba.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\zoom.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Tread3D.reg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="CJ60Lib\Lib\CJ60StaticLib.lib">
+      <Filter>Libraries</Filter>
+    </Library>
+  </ItemGroup>
+</Project>

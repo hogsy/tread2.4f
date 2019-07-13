@@ -83,7 +83,7 @@ class CPatchMesh : public CBaseGroupableObject,
 {
 protected:
 
-	static m_snDefaultPatchSize;
+	static int m_snDefaultPatchSize;
 
 #define MAX_MESH_POINTS	15
 

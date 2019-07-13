@@ -10,14 +10,14 @@
 #include "Entity.h"
 #include "Brush.h"
 #include "Face.h"
-#include <fstream.h>
+#include <fstream>
 
 class CNighthawkMapFile : public CQuakeMapFile
 {
 public:
 	
-	virtual bool WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument, fstream& file);
-	virtual bool WriteFace(CFace* pFace, CTread3DDoc* pDocument, fstream& file);
+	virtual bool WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument, std::fstream& file);
+	virtual bool WriteFace(CFace* pFace, CTread3DDoc* pDocument, std::fstream& file);
 	virtual int ReadPlane(CQBrushPlane* pPlane, CTread3DDoc* pDocument, CTokenizer& Tokenizer);
 
 };

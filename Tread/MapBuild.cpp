@@ -73,7 +73,7 @@ bool RunConsoleProcess(const char* exe, const char* cmdline, const char* wkdir)
 	DWORD nBytesRead;
 	SECURITY_ATTRIBUTES sa;
 
-	sprintf(filename, "%s\\bp%i.txt", GetRegString(S_TREAD_PATH), gNumProc++);
+	sprintf(filename, "%s\\bp%i.txt", (LPCTSTR) GetRegString(S_TREAD_PATH), gNumProc++);
 
 	sa.nLength = sizeof(sa);
 	sa.lpSecurityDescriptor = NULL;

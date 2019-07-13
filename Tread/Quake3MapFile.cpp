@@ -9,9 +9,9 @@
 #include "TreadSys.h"
 #include "Tread3DDoc.h"
 #include "GameAPI.h"
-#include <fstream.h>
+#include <fstream>
 
-bool CQuake3MapFile::WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, fstream& file)
+bool CQuake3MapFile::WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, std::fstream& file)
 {	
 	file << "{\n";
 	file << "\"classname\" \"worldspawn\"\n";

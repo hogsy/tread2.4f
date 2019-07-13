@@ -10,7 +10,7 @@
 #include "TreadSys.h"
 #include "Tread3DDoc.h"
 #include <math.h>
-#include <fstream.h>
+#include <fstream>
 
 int CQuake2MapFile::ReadPlane(CQBrushPlane* pPlane, CTread3DDoc* pDocument, CTokenizer& Tokenizer)
 {
@@ -98,7 +98,7 @@ int CQuake2MapFile::ReadPlane(CQBrushPlane* pPlane, CTread3DDoc* pDocument, CTok
 	return QRF_OK;
 }
 
-bool CQuake2MapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument, fstream& file)
+bool CQuake2MapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument, std::fstream& file)
 {
 	int i;
 	// Just skip.
