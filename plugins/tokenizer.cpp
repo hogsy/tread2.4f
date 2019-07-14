@@ -59,7 +59,7 @@ bool CTokenizer::InitParsing(CFile& File, int nNumBytes)
 
 	// Get the length of the file.
 	if(nNumBytes == WHOLE_FILE)
-		nNumBytes = File.GetLength();
+		nNumBytes = static_cast<int>(File.GetLength());
 
 	DWORD nLength = (DWORD)nNumBytes;
 	

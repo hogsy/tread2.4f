@@ -356,9 +356,6 @@ int CQuakeMapFile::ReadPlane(CQBrushPlane* pPlane, CTread3DDoc* pDocument,
 
   // Read shifts, scales, and rotations.
   if (version_ == 220) {
-    pPlane->m_vShifts[0] = 0;
-    pPlane->m_vShifts[1] = 0;
-
     vec4_t vt[2];
     for (i = 0; i < 2; i++) {
       Tokenizer.Skip();  // [
@@ -372,6 +369,9 @@ int CQuakeMapFile::ReadPlane(CQBrushPlane* pPlane, CTread3DDoc* pDocument,
       vt[i][3] = (float)atof(sToken);
       Tokenizer.Skip();  // ]
     }
+
+    pPlane->m_vShifts[0] = vt[0][3];
+    pPlane->m_vShifts[1] = vt[1][3];
 
     Tokenizer.GetToken(sToken);
     pPlane->m_fRotate = (float)atof(sToken);
