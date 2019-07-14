@@ -20,6 +20,9 @@ protected:
 	int m_nBrushCount;
 	int m_nFaceCount;
 
+  unsigned int version_{0};
+  // 0 = Quake, 220 = Half-Life
+
 	virtual bool FindDuplicatePlane(CLinkedList<CQBrushPlane>* pPlaneList, CQBrushPlane* pPlane);
 
 public:

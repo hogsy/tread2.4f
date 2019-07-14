@@ -18,558 +18,571 @@
 #include <math.h>
 #include <fstream>
 
-bool CQuakeMapFile::WriteMap(CFile& hFile, TREAD2XHEADERINFO* pHeader, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, CLinkedList<CBaseObject>* pUIObjectList)
-{
-	CString sFilename = hFile.GetFilePath();
-	hFile.Close();
-	std::fstream file;
+bool CQuakeMapFile::WriteMap(CFile& hFile, TREAD2XHEADERINFO* pHeader,
+                             CTread3DDoc* pDocument,
+                             CLinkedList<CBaseObject>* pObjectList,
+                             CLinkedList<CBaseObject>* pSelectedObjectList,
+                             CLinkedList<CBaseObject>* pUIObjectList) {
+  CString sFilename = hFile.GetFilePath();
+  hFile.Close();
+  std::fstream file;
 
-	file.open(sFilename, std::ios::out);
+  file.open(sFilename, std::ios::out);
 
-	m_nEntityCount=0;
-	m_nBrushCount=0;
-	m_nFaceCount=0;
+  m_nEntityCount = 0;
+  m_nBrushCount = 0;
+  m_nFaceCount = 0;
 
-	Debug("... writing quake map\n");
-	Debug("... worldspawn\n");
+  Debug("... writing quake map\n");
+  Debug("... worldspawn\n");
 
-	if(!WriteWorldspawn(pDocument->GetWorldspawn(), pDocument, pObjectList, pSelectedObjectList, file))
-	{
-		Error("CQuakeMapFile::WriteMap(): unable to write worldspawn");
-		return false;
-	}
+  if (!WriteWorldspawn(pDocument->GetWorldspawn(), pDocument, pObjectList,
+                       pSelectedObjectList, file)) {
+    Error("CQuakeMapFile::WriteMap(): unable to write worldspawn");
+    return false;
+  }
 
-	// Normal.|OBJECT_CLASS_LENTITY
-	if(!WriteObjectList(pObjectList, OBJECT_CLASS_ENTITY|OBJECT_CLASS_LENTITY|OBJECT_CLASS_GROUP, pDocument, file))
-		return false;
-	if(!WriteObjectList(pSelectedObjectList, OBJECT_CLASS_ENTITY|OBJECT_CLASS_LENTITY|OBJECT_CLASS_GROUP, pDocument, file))
-		return false;
+  // Normal.|OBJECT_CLASS_LENTITY
+  if (!WriteObjectList(
+          pObjectList,
+          OBJECT_CLASS_ENTITY | OBJECT_CLASS_LENTITY | OBJECT_CLASS_GROUP,
+          pDocument, file))
+    return false;
+  if (!WriteObjectList(
+          pSelectedObjectList,
+          OBJECT_CLASS_ENTITY | OBJECT_CLASS_LENTITY | OBJECT_CLASS_GROUP,
+          pDocument, file))
+    return false;
 
-	file.close();
+  file.close();
 
-	// Restore so MFC can close without dying.
-	hFile.Open(sFilename, CFile::typeBinary | CFile::modeWrite);
+  // Restore so MFC can close without dying.
+  hFile.Open(sFilename, CFile::typeBinary | CFile::modeWrite);
 
-	Debug("... %d entity(s)\n", m_nEntityCount);
-	Debug("... %d brush(es)\n", m_nBrushCount);
-	Debug("... %d face(s)\n", m_nFaceCount);
+  Debug("... %d entity(s)\n", m_nEntityCount);
+  Debug("... %d brush(es)\n", m_nBrushCount);
+  Debug("... %d face(s)\n", m_nFaceCount);
 
-	return true;
+  return true;
 }
 
-bool CQuakeMapFile::ReadMap(CFile& hFile, TREAD2XHEADERINFO* pHeader, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pUIObjectList)
-{
-	CString sToken;
-	CTokenizer Tokenizer;
-	CEntity* pEntity;
-	
-	pHeader->m_nFlags = T2XHF_IGNORE;
-	pDocument->AddGlobalRenderFlags(RF_NOENTITYFILL|RF_NOBILINEARFILTER|RF_NO3DVIEW);
+bool CQuakeMapFile::ReadMap(CFile& hFile, TREAD2XHEADERINFO* pHeader,
+                            CTread3DDoc* pDocument,
+                            CLinkedList<CBaseObject>* pObjectList,
+                            CLinkedList<CBaseObject>* pUIObjectList) {
+  CString sToken;
+  CTokenizer Tokenizer;
+  CEntity* pEntity;
 
-	Debug("... reading quake map\n");
-	Debug("... initing token parsing\n");
+  pHeader->m_nFlags = T2XHF_IGNORE;
+  pDocument->AddGlobalRenderFlags(RF_NOENTITYFILL | RF_NOBILINEARFILTER |
+                                  RF_NO3DVIEW);
 
-	// Load in the tokenizer.
-	if(!Tokenizer.InitParsing(hFile, WHOLE_FILE))
-	{
-		Error("CQuakeMapFile::ReadMap(): unable to load map script!\n");
-		return false;
-	}
+  Debug("... reading quake map\n");
+  Debug("... initing token parsing\n");
 
-	m_nEntityCount=1;
-	m_nBrushCount=0;
-	m_nFaceCount=0;
+  // Load in the tokenizer.
+  if (!Tokenizer.InitParsing(hFile, WHOLE_FILE)) {
+    Error("CQuakeMapFile::ReadMap(): unable to load map script!\n");
+    return false;
+  }
 
-	PrgSetPos(0);
-	PrgSetRange(0, Tokenizer.GetNumBytes());
+  m_nEntityCount = 1;
+  m_nBrushCount = 0;
+  m_nFaceCount = 0;
 
-	Debug("... parsing entities\n");
+  PrgSetPos(0);
+  PrgSetRange(0, Tokenizer.GetNumBytes());
 
-	while(Tokenizer.GetToken(sToken))
-	{
-		Tokenizer.UngetToken();
+  Debug("... parsing entities\n");
 
-		switch(ReadEntity(&pEntity, pDocument, Tokenizer))
-		{
-		case QRF_OK:
-			pDocument->AddObjectToMap((CBaseObject*)pEntity);
-			break;
-		case QRF_WORLDSPAWN:
-			break;
-		case QRF_ERROR:
-			break;
-		case QRF_FATAL:
-			return false;
-		}
-	}
+  while (Tokenizer.GetToken(sToken)) {
+    Tokenizer.UngetToken();
 
-	PrgSetPos(0);
+    switch (ReadEntity(&pEntity, pDocument, Tokenizer)) {
+      case QRF_OK:
+        pDocument->AddObjectToMap((CBaseObject*)pEntity);
+        break;
+      case QRF_WORLDSPAWN:
+        break;
+      case QRF_ERROR:
+        break;
+      case QRF_FATAL:
+        return false;
+    }
+  }
 
-	Debug("... %d entity(s)\n", m_nEntityCount);
-	Debug("... %d brush(es)\n", m_nBrushCount);
-	Debug("... %d face(s)\n", m_nFaceCount);
+  PrgSetPos(0);
 
-	return true;
+  Debug("... %d entity(s)\n", m_nEntityCount);
+  Debug("... %d brush(es)\n", m_nBrushCount);
+  Debug("... %d face(s)\n", m_nFaceCount);
+
+  return true;
 }
 
-int CQuakeMapFile::ReadEntity(CEntity** ppEntity, CTread3DDoc* pDocument, CTokenizer& Tokenizer)
-{
-	CEntity* pEntity=NULL;
-	CObjectGroup* pGroup;
-	CQBrush* pBrush;
-	bool bGroup=false, bWorld=false;
-	CString sToken, sValue;
-	CString sClassName;
+int CQuakeMapFile::ReadEntity(CEntity** ppEntity, CTread3DDoc* pDocument,
+                              CTokenizer& Tokenizer) {
+  CEntity* pEntity = NULL;
+  CObjectGroup* pGroup;
+  CQBrush* pBrush;
+  bool bGroup = false, bWorld = false;
+  CString sToken, sValue;
+  CString sClassName;
 
-	// Skip {
-	Tokenizer.Skip();
+  // Skip {
+  Tokenizer.Skip();
 
-	pEntity = (CEntity*)NewBaseObject(OBJECT_CLASS_ENTITY);
+  pEntity = (CEntity*)NewBaseObject(OBJECT_CLASS_ENTITY);
 
-	for(;;)
-	{
-		if(!Tokenizer.GetToken(sToken))
-		{
-			Error("CQuakeMapFile::ReadEntity(): Unexpected EOF!\n");
-			delete pEntity;
-			return QRF_FATAL;
-		}
+  for (;;) {
+    if (!Tokenizer.GetToken(sToken)) {
+      Error("CQuakeMapFile::ReadEntity(): Unexpected EOF!\n");
+      delete pEntity;
+      return QRF_FATAL;
+    }
 
-		if(sToken == "}")
-			break;
+    if (sToken == "}") break;
 
-		// Brush?
-		if(sToken == "{")
-		{
-			if(!bGroup && !bWorld && pEntity == NULL)
-			{
-				Error("CQuakeMapFile::ReadEntity(): Brush before classname!\n");
-				delete pEntity;
-				return QRF_FATAL;
-			}
+    // Brush?
+    if (sToken == "{") {
+      if (!bGroup && !bWorld && pEntity == NULL) {
+        Error("CQuakeMapFile::ReadEntity(): Brush before classname!\n");
+        delete pEntity;
+        return QRF_FATAL;
+      }
 
-			Tokenizer.UngetToken();
-			switch(ReadBrush(&pBrush, pDocument, Tokenizer))
-			{
-			case QRF_OK:
+      Tokenizer.UngetToken();
+      switch (ReadBrush(&pBrush, pDocument, Tokenizer)) {
+        case QRF_OK:
 
-				if(bWorld)
-					pDocument->AddObjectToMap(pBrush);
-				else if(bGroup)
-					pGroup->AddObject(pBrush);
-				else
-					pEntity->AddObject(pBrush);
+          if (bWorld)
+            pDocument->AddObjectToMap(pBrush);
+          else if (bGroup)
+            pGroup->AddObject(pBrush);
+          else
+            pEntity->AddObject(pBrush);
 
-				break;
+          break;
 
-			case QRF_ERROR:
-				break;
-			case QRF_FATAL:
-				delete pEntity;
-				return QRF_FATAL;
-			}
+        case QRF_ERROR:
+          break;
+        case QRF_FATAL:
+          delete pEntity;
+          return QRF_FATAL;
+      }
 
-		}
-		else
-		{
-			// Read value.
-			if(!Tokenizer.GetToken(sValue))
-			{
-				Error("CQuakeMapFile::ReadEntity(): Unexpected EOF!\n");
-				return QRF_FATAL;
-			}
+    } else {
+      // Read value.
+      if (!Tokenizer.GetToken(sValue)) {
+        Error("CQuakeMapFile::ReadEntity(): Unexpected EOF!\n");
+        return QRF_FATAL;
+      }
 
-			if(sToken == "classname")
-			{
-				sClassName = sValue;
-				bGroup = sClassName == "info_group";
-				bWorld = sClassName == "worldspawn";
+      if (sToken == "classname") {
+        sClassName = sValue;
+        bGroup = sClassName == "info_group";
+        bWorld = sClassName == "worldspawn";
 
-				// Make an object.
-				if(bGroup)
-					pGroup = new CObjectGroup();
-				
-				pEntity->SetClassName(sClassName);
+        // Make an object.
+        if (bGroup) pGroup = new CObjectGroup();
 
-				if(bWorld)
-					pDocument->SetWorldspawn(pEntity);
-			}
-			else
-			{
-				/*if(sClassName == "")
-				{
-					Error("CQuakeMapFile::ReadEntity(): expected classname!\n");
-					return QRF_FATAL;
-				}*/
+        pEntity->SetClassName(sClassName);
 
-				// Filter?
-				if(bWorld)
-				{
-					if(sToken == "origin" || sToken == "wad")
-						continue;
-				}
-				else if(!bGroup)
-				{
-					if(sToken == "origin")
-					{
-						sscanf(sValue, "%f %f %f", &pEntity->m_vOrigin[0], &pEntity->m_vOrigin[1], &pEntity->m_vOrigin[2]);
-						continue;
-					}
-				}
-				else
-				{
-					Warning("CQuakeMapFile::ReadEntity(): skipped useless key/pair on info_group!\n");
-					continue;
-				}
+        if (bWorld) pDocument->SetWorldspawn(pEntity);
+      } else {
+        /*if(sClassName == "")
+        {
+                Error("CQuakeMapFile::ReadEntity(): expected classname!\n");
+                return QRF_FATAL;
+        }*/
 
-				ENTITYKEY* pKey = new ENTITYKEY();
-				pKey->sName = sToken;
-				pKey->sValue = sValue;
+        // Filter?
+        if (bWorld) {
+          if (sToken == "origin" || sToken == "wad")
+            continue;
+          else if (sToken == "mapversion") {
+            version_ = atoi(sValue);
+          }
+        } else if (!bGroup) {
+          if (sToken == "origin") {
+            sscanf(sValue, "%f %f %f", &pEntity->m_vOrigin[0],
+                   &pEntity->m_vOrigin[1], &pEntity->m_vOrigin[2]);
+            continue;
+          }
+        } else {
+          Warning(
+              "CQuakeMapFile::ReadEntity(): skipped useless key/pair on "
+              "info_group!\n");
+          continue;
+        }
 
-				// Special?
-				if(bWorld)
-				{
-					// Load key/value pairs into document.
-					pDocument->GetWorldspawn()->GetKeyList()->AddItem(pKey);	
-				}
-				else if(!bGroup)
-					pEntity->GetKeyList()->AddItem(pKey);
-			}
-		}
-	}
+        ENTITYKEY* pKey = new ENTITYKEY();
+        pKey->sName = sToken;
+        pKey->sValue = sValue;
 
-	if(bGroup)
-	{
-		*ppEntity = (CEntity*)pGroup;
-		return QRF_GROUP;
-	}
+        // Special?
+        if (bWorld) {
+          // Load key/value pairs into document.
+          pDocument->GetWorldspawn()->GetKeyList()->AddItem(pKey);
+        } else if (!bGroup)
+          pEntity->GetKeyList()->AddItem(pKey);
+      }
+    }
+  }
 
-	*ppEntity = pEntity;
+  if (bGroup) {
+    *ppEntity = (CEntity*)pGroup;
+    return QRF_GROUP;
+  }
 
-	PrgSetPos(Tokenizer.GetByteOffset());
+  *ppEntity = pEntity;
 
-	m_nEntityCount++;
-	return bWorld ? QRF_WORLDSPAWN : QRF_OK;
+  PrgSetPos(Tokenizer.GetByteOffset());
+
+  m_nEntityCount++;
+  return bWorld ? QRF_WORLDSPAWN : QRF_OK;
 }
 
-int CQuakeMapFile::ReadBrush(CQBrush** ppBrush, CTread3DDoc* pDocument, CTokenizer& Tokenizer)
-{
-	CString sToken;
-	CLinkedList<CQBrushPlane> m_PlaneList;
-	CQBrushPlane* pPlane;
+int CQuakeMapFile::ReadBrush(CQBrush** ppBrush, CTread3DDoc* pDocument,
+                             CTokenizer& Tokenizer) {
+  CString sToken;
+  CLinkedList<CQBrushPlane> m_PlaneList;
+  CQBrushPlane* pPlane;
 
-	// Skip {
-	Tokenizer.Skip();
+  // Skip {
+  Tokenizer.Skip();
 
-	for(;;)
-	{
-		if(!Tokenizer.GetToken(sToken))
-		{
-			Error("CQuakeMapFile::ReadBrush(): unexpected EOF!\n");
-			return QRF_FATAL;
-		}
+  for (;;) {
+    if (!Tokenizer.GetToken(sToken)) {
+      Error("CQuakeMapFile::ReadBrush(): unexpected EOF!\n");
+      return QRF_FATAL;
+    }
 
-		if(sToken == "}")
-			break;
+    if (sToken == "}") break;
 
-		Tokenizer.UngetToken();
+    Tokenizer.UngetToken();
 
-		// Read a plane.
-		pPlane = new CQBrushPlane();
-		switch(ReadPlane(pPlane, pDocument, Tokenizer))
-		{
-		case QRF_OK:
+    // Read a plane.
+    pPlane = new CQBrushPlane();
+    switch (ReadPlane(pPlane, pDocument, Tokenizer)) {
+      case QRF_OK:
 
-			if(FindDuplicatePlane(&m_PlaneList, pPlane))
-			{
-				Warning("CQuakeMapFile::ReadBrush(): skipping duplicate plane!\n");
-				delete pPlane;
-				break;
-			}
+        if (FindDuplicatePlane(&m_PlaneList, pPlane)) {
+          Warning("CQuakeMapFile::ReadBrush(): skipping duplicate plane!\n");
+          delete pPlane;
+          break;
+        }
 
-			m_PlaneList.AddItem(pPlane);
-			break;
+        m_PlaneList.AddItem(pPlane);
+        break;
 
-		case QRF_ERROR:
-			delete pPlane;
-			break;
-		case QRF_FATAL:
-			return QRF_FATAL;
-		}
-	}
+      case QRF_ERROR:
+        delete pPlane;
+        break;
+      case QRF_FATAL:
+        return QRF_FATAL;
+    }
+  }
 
-	// Messed up brush?
-	// Must have at least four planes
-	if(m_PlaneList.GetCount() < 4)
-	{
-		Warning("CQuakeMapFile::ReadBrush(): Bad brush plane #. Brush was skipped.\n");
-		return QRF_ERROR;
-	}
+  // Messed up brush?
+  // Must have at least four planes
+  if (m_PlaneList.GetCount() < 4) {
+    Warning(
+        "CQuakeMapFile::ReadBrush(): Bad brush plane #. Brush was skipped.\n");
+    return QRF_ERROR;
+  }
 
-	// Create the brush.
-	CQBrush* pBrush = CQBrush::CreateBrushFromPlaneList(m_PlaneList);
-	if(pBrush == NULL)
-	{
-		Warning("CQuakeMapFile::ReadBrush(): CreateBrushFromPlaneList() failed! Skipping brush!\n");
-		return QRF_ERROR;
-	}
+  // Create the brush.
+  CQBrush* pBrush = CQBrush::CreateBrushFromPlaneList(m_PlaneList);
+  if (pBrush == NULL) {
+    Warning(
+        "CQuakeMapFile::ReadBrush(): CreateBrushFromPlaneList() failed! "
+        "Skipping brush!\n");
+    return QRF_ERROR;
+  }
 
-	*ppBrush = pBrush;
+  *ppBrush = pBrush;
 
-	m_nBrushCount++;
-	
-	PrgSetPos(Tokenizer.GetByteOffset());
+  m_nBrushCount++;
 
-	return QRF_OK;
+  PrgSetPos(Tokenizer.GetByteOffset());
+
+  return QRF_OK;
 }
 
-bool CQuakeMapFile::FindDuplicatePlane(CLinkedList<CQBrushPlane>* pPlaneList, CQBrushPlane* pPlane)
-{
-	CQBrushPlane* pP;
+bool CQuakeMapFile::FindDuplicatePlane(CLinkedList<CQBrushPlane>* pPlaneList,
+                                       CQBrushPlane* pPlane) {
+  CQBrushPlane* pP;
 
-	pPlaneList->First();
-	for(pP = pPlaneList->GetCurItem(); pP != NULL; pP = pPlaneList->GetNextItem())
-	{
-		if(VectorCompare(pP->m_Plane.m_vNormal, pPlane->m_Plane.m_vNormal, 0.001F))
-			return true;
-	}
+  pPlaneList->First();
+  for (pP = pPlaneList->GetCurItem(); pP != NULL;
+       pP = pPlaneList->GetNextItem()) {
+    if (VectorCompare(pP->m_Plane.m_vNormal, pPlane->m_Plane.m_vNormal, 0.001F))
+      return true;
+  }
 
-	return false;
+  return false;
 }
 
-int CQuakeMapFile::ReadPlane(CQBrushPlane* pPlane, CTread3DDoc* pDocument, CTokenizer& Tokenizer)
-{
-	// Read the 3pt plane def.
-	int i;
-	vec3_t v[3];
-	vec3_t vE[2];
-	CString sToken;
-	CString sTexture;
-	
-	for(i = 0; i < 3; i++)
-	{
-		Tokenizer.Skip();	// (
-		Tokenizer.GetToken(sToken);
-		v[i][0] = (float)atof(sToken);
-		Tokenizer.GetToken(sToken);
-		v[i][1] = (float)atof(sToken);
-		Tokenizer.GetToken(sToken);
-		v[i][2] = (float)atof(sToken);
-		Tokenizer.Skip(); // )
-	}
+int CQuakeMapFile::ReadPlane(CQBrushPlane* pPlane, CTread3DDoc* pDocument,
+                             CTokenizer& Tokenizer) {
+  // Read the 3pt plane def.
+  int i;
+  vec3_t v[3];
+  vec3_t vE[2];
+  CString sToken;
+  CString sTexture;
 
-	// Get the texture name.
-	if(!Tokenizer.GetToken(sTexture))
-	{
-		Error("CQuakeMapFile::ReadPlane(): Missing brush texture!\n");
-		return QRF_FATAL;
-	}
+  for (i = 0; i < 3; i++) {
+    Tokenizer.Skip();  // (
+    Tokenizer.GetToken(sToken);
+    v[i][0] = (float)atof(sToken);
+    Tokenizer.GetToken(sToken);
+    v[i][1] = (float)atof(sToken);
+    Tokenizer.GetToken(sToken);
+    v[i][2] = (float)atof(sToken);
+    Tokenizer.Skip();  // )
+  }
 
-	sTexture.MakeLower();
-	pPlane->m_sTexture = sTexture;
+  // Get the texture name.
+  if (!Tokenizer.GetToken(sTexture)) {
+    Error("CQuakeMapFile::ReadPlane(): Missing brush texture!\n");
+    return QRF_FATAL;
+  }
 
-	// Read shifts, scales, and rotations.
-	Tokenizer.GetToken(sToken);
-	pPlane->m_vShifts[0] = (float)atof(sToken);
-	Tokenizer.GetToken(sToken);
-	pPlane->m_vShifts[1] = (float)atof(sToken);
-	Tokenizer.GetToken(sToken);
-	pPlane->m_fRotate = (float)atof(sToken);
-	Tokenizer.GetToken(sToken);
-	pPlane->m_vScales[0] = (float)atof(sToken);
-	Tokenizer.GetToken(sToken);
-	pPlane->m_vScales[1] = (float)atof(sToken);
+  sTexture.MakeLower();
+  pPlane->m_sTexture = sTexture;
 
-	Tokenizer.GetToken(sToken);
-	if(sToken != "}" && sToken != "(")
-		Tokenizer.Skip(2);	
-	else
-		Tokenizer.UngetToken();
+  // Read shifts, scales, and rotations.
+  if (version_ == 220) {
+    pPlane->m_vShifts[0] = 0;
+    pPlane->m_vShifts[1] = 0;
 
-	// Make the plane.
-	VectorSubtract(v[0], v[1], vE[0]);
-	VectorSubtract(v[2], v[1], vE[1]);
-	CalcOrthoVector(vE[0], vE[1], pPlane->m_Plane.m_vNormal);
+    vec4_t vt[2];
+    for (i = 0; i < 2; i++) {
+      Tokenizer.Skip();  // [
+      Tokenizer.GetToken(sToken);
+      vt[i][0] = (float)atof(sToken);
+      Tokenizer.GetToken(sToken);
+      vt[i][1] = (float)atof(sToken);
+      Tokenizer.GetToken(sToken);
+      vt[i][2] = (float)atof(sToken);
+      Tokenizer.GetToken(sToken);
+      vt[i][3] = (float)atof(sToken);
+      Tokenizer.Skip();  // ]
+    }
 
-	// Bad normal?
-	if(VectorIsZero(pPlane->m_Plane.m_vNormal))
-	{
-		Warning("CQuakeMapFile::ReadPlane(): bad plane normal!\n");
-		return QRF_ERROR;
-	}
+    Tokenizer.GetToken(sToken);
+    pPlane->m_fRotate = (float)atof(sToken);
+    Tokenizer.GetToken(sToken);
+    pPlane->m_vScales[0] = (float)atof(sToken);
+    Tokenizer.GetToken(sToken);
+    pPlane->m_vScales[1] = (float)atof(sToken);
+  } else {
+    Tokenizer.GetToken(sToken);
+    pPlane->m_vShifts[0] = (float)atof(sToken);
+    Tokenizer.GetToken(sToken);
+    pPlane->m_vShifts[1] = (float)atof(sToken);
+    Tokenizer.GetToken(sToken);
+    pPlane->m_fRotate = (float)atof(sToken);
+    Tokenizer.GetToken(sToken);
+    pPlane->m_vScales[0] = (float)atof(sToken);
+    Tokenizer.GetToken(sToken);
+    pPlane->m_vScales[1] = (float)atof(sToken);
+  }
 
-	// Get a distance.
-	pPlane->m_Plane.m_vDist = DotProduct(v[0], pPlane->m_Plane.m_vNormal);
+  Tokenizer.GetToken(sToken);
+  if (sToken != "}" && sToken != "(")
+    Tokenizer.Skip(2);
+  else
+    Tokenizer.UngetToken();
 
-	m_nFaceCount++;
-	return QRF_OK;
+  // Make the plane.
+  VectorSubtract(v[0], v[1], vE[0]);
+  VectorSubtract(v[2], v[1], vE[1]);
+  CalcOrthoVector(vE[0], vE[1], pPlane->m_Plane.m_vNormal);
+
+  // Bad normal?
+  if (VectorIsZero(pPlane->m_Plane.m_vNormal)) {
+    Warning("CQuakeMapFile::ReadPlane(): bad plane normal!\n");
+    return QRF_ERROR;
+  }
+
+  // Get a distance.
+  pPlane->m_Plane.m_vDist = DotProduct(v[0], pPlane->m_Plane.m_vNormal);
+
+  m_nFaceCount++;
+  return QRF_OK;
 }
 
-bool CQuakeMapFile::WriteGroup(CObjectGroup* pGroup, int nClass, CTread3DDoc* pDocument, std::fstream& file)
-{
-	return WriteObjectList(pGroup->GetObjectList(), nClass, pDocument, file);
+bool CQuakeMapFile::WriteGroup(CObjectGroup* pGroup, int nClass,
+                               CTread3DDoc* pDocument, std::fstream& file) {
+  return WriteObjectList(pGroup->GetObjectList(), nClass, pDocument, file);
 }
 
-bool CQuakeMapFile::WriteObjectList(CLinkedList<CBaseObject>* pList, int nClass, CTread3DDoc* pDocument, std::fstream& file)
-{
-	CBaseObject* pObject;
-	
-	pList->First();
-	for(pObject = pList->GetCurItem(); pObject != NULL; pObject = pList->GetNextItem())
-		if(pObject->GetObjectClass()&nClass)
-			if(!WriteObject(pObject, nClass, pDocument, file))
-				return false;
+bool CQuakeMapFile::WriteObjectList(CLinkedList<CBaseObject>* pList, int nClass,
+                                    CTread3DDoc* pDocument,
+                                    std::fstream& file) {
+  CBaseObject* pObject;
 
-	return true;
+  pList->First();
+  for (pObject = pList->GetCurItem(); pObject != NULL;
+       pObject = pList->GetNextItem())
+    if (pObject->GetObjectClass() & nClass)
+      if (!WriteObject(pObject, nClass, pDocument, file)) return false;
+
+  return true;
 }
 
-bool CQuakeMapFile::WriteObject(CBaseObject* pObject, int nClass, CTread3DDoc* pDocument, std::fstream& file)
-{
-	switch(pObject->GetObjectClass())
-	{
-	case OBJECT_CLASS_BRUSH:
-		if(!WriteBrush((CQBrush*)pObject, pDocument, file))
-			return false;
-		break;
-	case OBJECT_CLASS_ENTITY:
-	case OBJECT_CLASS_LENTITY:
-		if(!WriteEntity((CEntity*)pObject, pDocument, file))
-			return false;
-	case OBJECT_CLASS_GROUP:
-		if(!WriteGroup((CObjectGroup*)pObject, nClass, pDocument, file))
-			break;
-	}
+bool CQuakeMapFile::WriteObject(CBaseObject* pObject, int nClass,
+                                CTread3DDoc* pDocument, std::fstream& file) {
+  switch (pObject->GetObjectClass()) {
+    case OBJECT_CLASS_BRUSH:
+      if (!WriteBrush((CQBrush*)pObject, pDocument, file)) return false;
+      break;
+    case OBJECT_CLASS_ENTITY:
+    case OBJECT_CLASS_LENTITY:
+      if (!WriteEntity((CEntity*)pObject, pDocument, file)) return false;
+    case OBJECT_CLASS_GROUP:
+      if (!WriteGroup((CObjectGroup*)pObject, nClass, pDocument, file)) break;
+  }
 
-	return true;	
-
+  return true;
 }
 
-bool CQuakeMapFile::WriteWorldspawn(CEntity* pEntity, CTread3DDoc* pDocument, CLinkedList<CBaseObject>* pObjectList, CLinkedList<CBaseObject>* pSelectedObjectList, std::fstream& file)
-{	
-	file << "{\n";
-	file << "\"classname\" \"worldspawn\"\n";
+bool CQuakeMapFile::WriteWorldspawn(
+    CEntity* pEntity, CTread3DDoc* pDocument,
+    CLinkedList<CBaseObject>* pObjectList,
+    CLinkedList<CBaseObject>* pSelectedObjectList, std::fstream& file) {
+  file << "{\n";
+  file << "\"classname\" \"worldspawn\"\n";
 
-	// Write keys;
-	ENTITYKEY* pKey;
-	CLinkedList<ENTITYKEY>* pKeyList = pEntity->GetKeyList();
-	pKeyList->First();
-	for(pKey = pKeyList->GetCurItem(); pKey != NULL; pKey = pKeyList->GetNextItem())
-	{
-		if(pKey->sName == "$SURFACE_77X" || pKey->sName == "$CONTENTS_77X")
-			continue;
-		if(pKey->sValue == "0" || pKey->sValue == "")
-			continue;
-		file << "\"" << pKey->sName << "\"" << " \"" << pKey->sValue << "\"\n";
-	}
+  // Write keys;
+  ENTITYKEY* pKey;
+  CLinkedList<ENTITYKEY>* pKeyList = pEntity->GetKeyList();
+  pKeyList->First();
+  for (pKey = pKeyList->GetCurItem(); pKey != NULL;
+       pKey = pKeyList->GetNextItem()) {
+    if (pKey->sName == "$SURFACE_77X" || pKey->sName == "$CONTENTS_77X")
+      continue;
+    if (pKey->sValue == "0" || pKey->sValue == "") continue;
+    file << "\"" << pKey->sName << "\""
+         << " \"" << pKey->sValue << "\"\n";
+  }
 
-	// Write the .wad list.
-	file << "\"wad\" \"";
-	bool bSemi = false;
+  // Write the .wad list.
+  file << "\"wad\" \"";
+  bool bSemi = false;
 
-	GAMEPAKFILE* pPak;
-	CLinkedList<GAMEPAKFILE>* pPakList = GetGameAPI()->GetCurrentGame()->GetPakFileList();
-	pPakList->First();
-	for(pPak = pPakList->GetCurItem(); pPak != NULL; pPak = pPakList->GetNextItem())
-	{
-		if(bSemi)
-			file << ";";
-		bSemi = true;
-		file << pPak->sFilename;
-	}
-	file << "\"\n";
+  GAMEPAKFILE* pPak;
+  CLinkedList<GAMEPAKFILE>* pPakList =
+      GetGameAPI()->GetCurrentGame()->GetPakFileList();
+  pPakList->First();
+  for (pPak = pPakList->GetCurItem(); pPak != NULL;
+       pPak = pPakList->GetNextItem()) {
+    if (bSemi) file << ";";
+    bSemi = true;
+    file << pPak->sFilename;
+  }
+  file << "\"\n";
 
-	// Normal.
-	if(!WriteObjectList(pObjectList, OBJECT_CLASS_BRUSH|OBJECT_CLASS_GROUP, pDocument, file))
-		return false;
-	if(!WriteObjectList(pSelectedObjectList, OBJECT_CLASS_BRUSH|OBJECT_CLASS_GROUP, pDocument, file))
-		return false;
+  // Normal.
+  if (!WriteObjectList(pObjectList, OBJECT_CLASS_BRUSH | OBJECT_CLASS_GROUP,
+                       pDocument, file))
+    return false;
+  if (!WriteObjectList(pSelectedObjectList,
+                       OBJECT_CLASS_BRUSH | OBJECT_CLASS_GROUP, pDocument,
+                       file))
+    return false;
 
-	file << "}\n";
+  file << "}\n";
 
-	return true;
+  return true;
 }
 
-bool CQuakeMapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument, std::fstream& file)
-{
-	int i;
-	// Just skip.
-	if(pFace->GetNumPoints() < 3)
-	{
-		Warning("CQuakeMapFile::WriteFace(): < 3 pts.");
-		return true;
-	}
+bool CQuakeMapFile::WriteFace(CFace* pFace, CTread3DDoc* pDocument,
+                              std::fstream& file) {
+  int i;
+  // Just skip.
+  if (pFace->GetNumPoints() < 3) {
+    Warning("CQuakeMapFile::WriteFace(): < 3 pts.");
+    return true;
+  }
 
-	// Write the 3 point plane def.
-	vec3_t* vPoints = pFace->GetPoints();
-	for(i = 0; i < 3; i++)
-		file << "( " << (int)(floor(vPoints[i][0] - 0.5) + 1) << " " << (int)(floor(vPoints[i][1] - 0.5) + 1) << " " << (int)(floor(vPoints[i][2] - 0.5) + 1) << " ) ";
+  // Write the 3 point plane def.
+  vec3_t* vPoints = pFace->GetPoints();
+  for (i = 0; i < 3; i++)
+    file << "( " << (int)(floor(vPoints[i][0] - 0.5) + 1) << " "
+         << (int)(floor(vPoints[i][1] - 0.5) + 1) << " "
+         << (int)(floor(vPoints[i][2] - 0.5) + 1) << " ) ";
 
-	CString sTexture = pFace->GetTextureName();
-	sTexture.MakeLower();
-	file << sTexture;
+  CString sTexture = pFace->GetTextureName();
+  sTexture.MakeLower();
+  file << sTexture;
 
-	vec_t vShifts[2], vScales[2];
-	pFace->GetTexScales(vScales);
-	pFace->GetTexShifts(vShifts);
+  vec_t vShifts[2], vScales[2];
+  pFace->GetTexScales(vScales);
+  pFace->GetTexShifts(vShifts);
 
-	file << " " << (int)vShifts[0] << " " << (int)vShifts[1] << " " << (int)pFace->GetRotation() << " " << vScales[0] << " " << vScales[1];
-	file << "\n";
+  file << " " << (int)vShifts[0] << " " << (int)vShifts[1] << " "
+       << (int)pFace->GetRotation() << " " << vScales[0] << " " << vScales[1];
+  file << "\n";
 
-	m_nFaceCount++;
-	return true;
+  m_nFaceCount++;
+  return true;
 }
 
-bool CQuakeMapFile::WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument, std::fstream& file)
-{
-	CFace* pFace;
+bool CQuakeMapFile::WriteBrush(CQBrush* pBrush, CTread3DDoc* pDocument,
+                               std::fstream& file) {
+  CFace* pFace;
 
-	file << "{\n";
-	
-	pBrush->m_pFaceList->First();
-	for(pFace = pBrush->m_pFaceList->GetCurItem(); pFace != NULL; pFace = pBrush->m_pFaceList->GetNextItem())
-	{
-		if(!WriteFace(pFace, pDocument, file))
-			return false;
-	}
+  file << "{\n";
 
-	file << "}\n";
+  pBrush->m_pFaceList->First();
+  for (pFace = pBrush->m_pFaceList->GetCurItem(); pFace != NULL;
+       pFace = pBrush->m_pFaceList->GetNextItem()) {
+    if (!WriteFace(pFace, pDocument, file)) return false;
+  }
 
-	m_nBrushCount++;
-	return true;
+  file << "}\n";
+
+  m_nBrushCount++;
+  return true;
 }
 
-bool CQuakeMapFile::WriteEntity(CEntity* pEntity, CTread3DDoc* pDocument, std::fstream& file)
-{
-	CBaseObject* pObject;
+bool CQuakeMapFile::WriteEntity(CEntity* pEntity, CTread3DDoc* pDocument,
+                                std::fstream& file) {
+  CBaseObject* pObject;
 
-	file << "{\n";
+  file << "{\n";
 
-	// Write keys;
-	file << "\"classname\" \"" << pEntity->GetClassName() << "\"\n";
-	file << "\"origin\" \"" << (int)pEntity->m_vOrigin[0] << " " << (int)pEntity->m_vOrigin[1] << " " << (int)pEntity->m_vOrigin[2] << "\"\n";
+  // Write keys;
+  file << "\"classname\" \"" << pEntity->GetClassName() << "\"\n";
+  file << "\"origin\" \"" << (int)pEntity->m_vOrigin[0] << " "
+       << (int)pEntity->m_vOrigin[1] << " " << (int)pEntity->m_vOrigin[2]
+       << "\"\n";
 
-	ENTITYKEY* pKey;
-	CLinkedList<ENTITYKEY>* pKeyList = pEntity->GetKeyList();
-	pKeyList->First();
-	for(pKey = pKeyList->GetCurItem(); pKey != NULL; pKey = pKeyList->GetNextItem())
-	{
-		if(pKey->sValue == "0" || pKey->sValue == "")
-			continue;
-		file << "\"" << pKey->sName << "\"" << " \"" << pKey->sValue << "\"\n";
-	}
+  ENTITYKEY* pKey;
+  CLinkedList<ENTITYKEY>* pKeyList = pEntity->GetKeyList();
+  pKeyList->First();
+  for (pKey = pKeyList->GetCurItem(); pKey != NULL;
+       pKey = pKeyList->GetNextItem()) {
+    if (pKey->sValue == "0" || pKey->sValue == "") continue;
+    file << "\"" << pKey->sName << "\""
+         << " \"" << pKey->sValue << "\"\n";
+  }
 
-	CLinkedList<CBaseObject>* pObjectList = pEntity->GetObjectList();
-	pObjectList->First();
-	for(pObject = pObjectList->GetCurItem(); pObject != NULL; pObject = pObjectList->GetNextItem())
-	{
-		if((pObject->GetObjectClass()&OBJECT_CLASS_BRUSH)==0)
-			continue;
-		if(!WriteBrush((CQBrush*)pObject, pDocument, file))
-			return false;
-	}
+  CLinkedList<CBaseObject>* pObjectList = pEntity->GetObjectList();
+  pObjectList->First();
+  for (pObject = pObjectList->GetCurItem(); pObject != NULL;
+       pObject = pObjectList->GetNextItem()) {
+    if ((pObject->GetObjectClass() & OBJECT_CLASS_BRUSH) == 0) continue;
+    if (!WriteBrush((CQBrush*)pObject, pDocument, file)) return false;
+  }
 
-	file << "}\n";
+  file << "}\n";
 
-	m_nEntityCount++;
-	return true;
+  m_nEntityCount++;
+  return true;
 }
