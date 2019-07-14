@@ -39,7 +39,6 @@ BEGIN_MESSAGE_MAP(CGameDialog, CDialog)
 	ON_WM_CTLCOLOR()
 	ON_LBN_SELCHANGE(IDC_LIST_GAMES, OnSelchangeListGames)
 	ON_BN_CLICKED(IDC_BUTTON_SELECT, OnButtonSelect)
-	ON_WM_SETCURSOR()
 	ON_LBN_DBLCLK(IDC_LIST_GAMES, OnDblclkListGames)
 	ON_LBN_SELCANCEL(IDC_LIST_GAMES, OnSelcancelListGames)
 	//}}AFX_MSG_MAP
@@ -115,18 +114,6 @@ CString CGameDialog::GetGameSelection()
 void CGameDialog::OnButtonSelect() 
 {
 	OnOK();
-}
-
-BOOL CGameDialog::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message) 
-{
-	HCURSOR cursor;
-	cursor = AfxGetApp()->LoadCursor(IDC_BLUE_ARROW);
-	if(cursor == NULL)
-		return CDialog::OnSetCursor(pWnd, nHitTest, message);
-
-	SetCursor(cursor);
-	
-	return true;
 }
 
 void CGameDialog::OnDblclkListGames() 

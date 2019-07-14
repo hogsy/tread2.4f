@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
+// Microsoft Visual C++ generated include file.
 // Used by Tread3D.rc
 //
 #define IDD_ABOUTBOX                    100
@@ -31,7 +31,6 @@
 #define IDI_ICON_PALETTE2               156
 #define IDD_DIALOG_GAMESELECT           157
 #define IDB_VERTICAL                    158
-#define IDC_BLUE_ARROW                  159
 #define IDD_TEXTURE                     160
 #define IDC_PROGRESS_STATUS             161
 #define IDD_DIALOG_ENTITY               162
@@ -336,7 +335,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        220
+#define _APS_NEXT_RESOURCE_VALUE        221
 #define _APS_NEXT_COMMAND_VALUE         35024
 #define _APS_NEXT_CONTROL_VALUE         1110
 #define _APS_NEXT_SYMED_VALUE           114

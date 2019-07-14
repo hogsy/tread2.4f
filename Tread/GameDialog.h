@@ -43,7 +43,6 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSelchangeListGames();
 	afx_msg void OnButtonSelect();
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnDblclkListGames();
 	afx_msg void OnSelcancelListGames();
 	//}}AFX_MSG
