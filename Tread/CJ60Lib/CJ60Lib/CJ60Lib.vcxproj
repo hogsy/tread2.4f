@@ -133,7 +133,7 @@
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>../Lib/CJ60Libd.dll</OutputFile>
+      <OutputFile>../../Debug/CJ60Libd.dll</OutputFile>
       <ImportLibrary>../Lib/CJ60Libd.lib</ImportLibrary>
       <ModuleDefinitionFile>.\CJ60Lib.def</ModuleDefinitionFile>
     </Link>
