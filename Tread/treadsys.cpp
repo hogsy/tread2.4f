@@ -109,11 +109,9 @@ void TreadInit()
 	Debug("Init: RenderAPI\n");
 	GetRenderAPI()->Initialize();
 
-#ifndef DEBUG
 	PrintSplashLine("Init: Plugins");
 	Debug("Init: Plugins\n");
 	GetPluginAPI()->Initialize();
-#endif
 
 }
 
