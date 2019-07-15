@@ -421,8 +421,8 @@ void CGameSetupDialog::OnSelchangedTreeDirectory(NMHDR* pNMHDR, LRESULT* pResult
 			if(fd.dwFileAttributes != FILE_ATTRIBUTE_DIRECTORY)
 				m_lbFiles.AddString(fd.cFileName);
 		}
-
-		::CloseHandle(hFind);
+    
+		::FindClose(hFind);
 	}
 	
 	m_bFile = false;

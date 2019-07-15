@@ -521,7 +521,7 @@ BOOL CDriveTreeCtrl::IsPathValid (CString& strPathName)
         INVALID_HANDLE_VALUE) {
             if (fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
                 bResult = TRUE;
-        ::CloseHandle (hFind);
+        ::FindClose(hFind);
     }
     return bResult;
 }
