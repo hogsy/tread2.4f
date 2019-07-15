@@ -91,7 +91,7 @@ bool CTokenizer::InitParsing(const char* szFilename)
 		return false;
 
 	// Get the length of the file.
-	DWORD nLength = File.GetLength();
+	DWORD nLength = static_cast<DWORD>(File.GetLength());
 	
 	m_pBuffer = new char[nLength+1];
 	if(m_pBuffer == NULL)

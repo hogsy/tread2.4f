@@ -457,9 +457,9 @@ multiple events.
 
 // Console routines.
 extern void (*Debug)(CString sMessage, ...);
-extern void (*Warning) (CString sMessage, bool bPopup = false);
-extern void (*Error)(CString sMessage, bool bConsole = true);
-extern void (*Fatal)(CString sMessage, bool bConsole = false);
+extern void (*Warning) (CString sMessage, bool bPopup /*= false*/);
+extern void (*Error)(CString sMessage, bool bConsole /*= true*/);
+extern void (*Fatal)(CString sMessage, bool bConsole /*= false*/);
 
 // Registry calls.
 extern CString (*GetRegString) (UINT nCode);
@@ -471,7 +471,7 @@ extern void (*SetRegInt) (UINT nCode, int nData);
 extern void (*SetRegBool) (UINT nCode, bool bData);
 
 // Tracks a popup menu.
-extern void (*TreadPopupMenu) (UINT nMenuId, int nXPos, int nYPos, CWnd* pWnd, bool bTranslate=true);
+extern void (*TreadPopupMenu) (UINT nMenuId, int nXPos, int nYPos, CWnd* pWnd, bool bTranslate/*=true*/);
 
 // Get's the current clipboard.
 extern CLinkedList<CBaseObject>* (*GetGlobalClipboard) ();
@@ -600,8 +600,8 @@ extern CMapManager* (*GetMapManager) ();
 #define TEXTURE_VIEW	3
 
 extern CView* (*GetView) (UINT nCode);
-extern void (*EnableView) (UINT nCode, bool bEnable = true);
-extern void (*EnableAllViews) (bool bEnable = true);
+extern void (*EnableView) (UINT nCode, bool bEnable/* = true*/);
+extern void (*EnableAllViews) (bool bEnable/* = true*/);
 
 //////////////////////////////////////////////////////////////////////
 // MODE.H															//
@@ -3736,18 +3736,18 @@ extern void (*G_Rotate)(vec3_t vRot, GDATA* pGD);
 extern void (*G_Build)(GDATA* pGD);
 extern float (*G_SnapFloat)(vec_t fPoint, int nGridSize);
 extern float (*G_SnapFloatDelta)(vec_t fPoint, vec_t fLast, int nGridSize);
-extern void (*G_SnapVector)(vec3_t vPoint, vec3_t vOut, int nGridSize, vec_t* pTrans=NULL);
-extern void (*G_SnapVectorDelta)(vec3_t vPoint, vec3_t vLast, vec3_t vOut, int nGridSize, vec_t* pTrans=NULL);
-extern void (*G_Snap)(GDATA* pGD, int nGridSize, vec_t* pTrans=NULL);
-extern void (*G_SnapDelta)(GDATA* pGD, vec3_t vLast, int nGridSize, vec_t* pTrans=NULL);
+extern void (*G_SnapVector)(vec3_t vPoint, vec3_t vOut, int nGridSize, vec_t* pTrans/*=NULL*/);
+extern void (*G_SnapVectorDelta)(vec3_t vPoint, vec3_t vLast, vec3_t vOut, int nGridSize, vec_t* pTrans/*=NULL*/);
+extern void (*G_Snap)(GDATA* pGD, int nGridSize, vec_t* pTrans/*=NULL*/);
+extern void (*G_SnapDelta)(GDATA* pGD, vec3_t vLast, int nGridSize, vec_t* pTrans/*=NULL*/);
 extern void (*G_SetSize)(vec3_t vSize, GDATA* pGD);
 extern void (*G_AddToMap)(CLinkedList<CBaseObject>* pList, CTread3DDoc* pDocument);
 extern void (*G_AddToSelection)(CLinkedList<CBaseObject>* pList, CTread3DDoc* pDocument);
 extern void (*G_CopyList)(CLinkedList<CBaseObject>* pSrc, CLinkedList<CBaseObject>* pDst);
 extern void (*G_TextureList)(CLinkedList<CBaseObject>* pList, CString sTexture);
 extern void (*G_TransferList)(CLinkedList<CBaseObject>* pSrc, CLinkedList<CBaseObject>* pDst);
-extern int (*G_GetInterfaceCount)(CLinkedList<CBaseObject>* pList, int nInterface=I_ALL);
-extern int (*G_GetClassCount)(CLinkedList<CBaseObject>* pList, int nClass=OBJECT_CLASS_ALL);
+extern int (*G_GetInterfaceCount)(CLinkedList<CBaseObject>* pList, int nInterface/*=I_ALL*/);
+extern int (*G_GetClassCount)(CLinkedList<CBaseObject>* pList, int nClass/*=OBJECT_CLASS_ALL*/);
 extern bool (*G_WriteObjectList)(int nVersion, CFile& hFile, CLinkedList<CBaseObject>* pList);
 extern bool (*G_ReadObjectList)(int nNumObjects, int nVersion, CFile& hFile, CLinkedList<CBaseObject>* pList, CLinkedList<CBaseObject>* pUIList);
 extern void (*G_InitAfterLoad)(CLinkedList<CBaseObject>* pList, CTread3DDoc* pDocument);

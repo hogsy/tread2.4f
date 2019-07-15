@@ -143,7 +143,7 @@ void CLitFace::MakeLightmapsFromWinding_r(CWinding* pWinding)
 				return;
 			}
 
-			Warning("MakeLightmapsFromWinding_r: bad subdivision edge\n");
+			Warning("MakeLightmapsFromWinding_r: bad subdivision edge\n", false);
 			if(pWF != NULL)
 				delete pWF;
 			if(pWB != NULL)

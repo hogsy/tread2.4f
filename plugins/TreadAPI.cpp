@@ -71,7 +71,7 @@ int (*G_GetInterfaceCount)(CLinkedList<CBaseObject>* pList, int nInterface);
 int (*G_GetClassCount)(CLinkedList<CBaseObject>* pList, int nClass);
 bool (*G_WriteObjectList)(int nVersion, CFile& hFile, CLinkedList<CBaseObject>* pList);
 bool (*G_ReadObjectList)(int nNumObjects, int nVersion, CFile& hFile, CLinkedList<CBaseObject>* pList, CLinkedList<CBaseObject>* pUIList);
-void (*G_InitAfterLoad)(GDATA* pData, CTread3DDoc* pDocument);
+void (*G_InitAfterLoad)(CLinkedList<CBaseObject>* pList, CTread3DDoc* pDocument);
 void (*G_InitFromSelection)(CLinkedList<CBaseObject>* pList, CTread3DDoc* pDocument, CMapView* pView, vec3_t vMins, vec3_t vMaxs, vec3_t vOrigin);
 
 GVIEWOR* gViewOr=NULL;

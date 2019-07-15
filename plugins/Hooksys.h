@@ -52,7 +52,7 @@ typedef void (*TF_CLEARCONSOLE) (void);
 #ifdef _WIN32
 typedef CView* (*TF_GETVIEW) (UINT nCode);
 typedef void (*TF_ENABLEVIEW) (UINT nCode, bool bEnable);
-typedef void (*TF_ENABLEALLVIEWS) (bool bEnable = true);
+typedef void (*TF_ENABLEALLVIEWS) (bool bEnable /*= true*/);
 #endif
 
 typedef CVisgroupAPI* (*TF_GETVISGROUPAPI) (void);

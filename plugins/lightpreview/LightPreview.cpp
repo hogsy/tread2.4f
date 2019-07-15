@@ -161,7 +161,7 @@ void CLightPreview::BuildLightList(CLinkedList<CBaseObject>* pList, CLinkedList<
 				CString sKey = pEntity->GetKeyValue("_light");
 				if(sKey == "")
 				{
-					Warning("BuildLight: 'light' entity missing any type of recongnizable light information\n");
+					Warning("BuildLight: 'light' entity missing any type of recongnizable light information\n", false);
 					delete pLight;
 					continue;
 				}
@@ -174,7 +174,7 @@ void CLightPreview::BuildLightList(CLinkedList<CBaseObject>* pList, CLinkedList<
 			{
 				if(sColor == "")
 				{
-					Warning("BuildLight: 'light' entity missing _color or light key!\n");
+					Warning("BuildLight: 'light' entity missing _color or light key!\n", false);
 					delete pLight;
 					continue;
 				}
