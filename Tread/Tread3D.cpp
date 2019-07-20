@@ -64,6 +64,9 @@ BOOL CTread3DApp::InitInstance()
 {
 	CCommandLineInfo cmdInfo;
 	ParseCommandLine(cmdInfo);
+
+  gtk_init(&__argc, &__argv);
+
 	CSplashWnd::EnableSplashScreen(cmdInfo.m_bShowSplash);
 
 	AfxEnableControlContainer();
@@ -138,6 +141,13 @@ BOOL CTread3DApp::InitInstance()
 	ShowTipAtStartup();
 
 	return TRUE;
+}
+
+BOOL CTread3DApp::OnIdle(LONG lCount) {
+  while (gtk_events_pending()) {
+    gtk_main_iteration();
+  }
+  return CWinApp::OnIdle(lCount);
 }
 
 

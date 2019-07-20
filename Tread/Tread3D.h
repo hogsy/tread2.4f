@@ -15,6 +15,8 @@
 #include "resource.h"       // main symbols
 #include <afxsock.h>
 
+#include <gtk/gtk.h>
+
 /////////////////////////////////////////////////////////////////////////////
 // CTread3DApp:
 // See Tread3D.cpp for the implementation of this class
@@ -77,6 +79,8 @@ public:
 	public:
 	virtual BOOL InitInstance();
 	//}}AFX_VIRTUAL
+
+  virtual BOOL OnIdle(LONG lCount);
 
 // Implementation
 	//{{AFX_MSG(CTread3DApp)
