@@ -1497,7 +1497,7 @@ BOOL CTread3DDoc::OnNewDocument()
 #ifdef _WIN32
 		CGameDialog dlgTemp;
 
-		if(dlgTemp.DoModal() != IDOK)
+		if(dlgTemp.DoModal() != GTK_RESPONSE_OK)
 			return false;
 
 		if(!GetGameAPI()->SetCurrentGame(dlgTemp.GetGameSelection()))

@@ -65,7 +65,7 @@ CBaseTreadMapFile* CTreadMapAPI::GetFileReader(CString sTag, int nMagic, CTread3
 #ifdef _WIN32
 		CGameDialog dlgTemp;
 
-		if(dlgTemp.DoModal() != IDOK)
+		if(dlgTemp.DoModal() != GTK_RESPONSE_OK)
 			return false;
 
 		Debug("... setting game type\n");
