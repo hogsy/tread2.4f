@@ -39,17 +39,43 @@ namespace gtk {
       delete cself;
     }
 
+    GtkWidget* GetSelf() { return self_; }
+
   protected:
     GtkWidget* self_{ nullptr };
   };
 
   class Container : public Widget {
   public:
+
+    void Add(Widget* widget) {
+      gtk_container_add(GTK_CONTAINER(self_), widget->GetSelf());
+    }
+
+    void Remove(Widget* widget) {
+      gtk_container_remove(GTK_CONTAINER(self_), widget->GetSelf());
+    }
+
+    void SetBorderWidth(unsigned int border_width) {
+      gtk_container_set_border_width(GTK_CONTAINER(self_), border_width);
+    }
+
   protected:
   private:
   };
 
-  class Window : public Widget {
+  class ComboBox : public Container {
+  public:
+    ComboBox() {
+      self_ = gtk_combo_box_new();
+    }
+
+    void SetActive(int index) {
+      gtk_combo_box_set_active(GTK_COMBO_BOX(self_), index);
+    }
+  };
+
+  class Window : public Container {
   public:
     explicit Window(GtkWindowType type) {
       self_ = gtk_window_new(type);

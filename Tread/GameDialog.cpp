@@ -55,7 +55,7 @@ CGameDialog::CGameDialog(GtkWindow* pParent) : Dialog() {
   // Ensure something is selected
   gtk_combo_box_set_active(GTK_COMBO_BOX(combo_box), 0);
 
-  gtk_container_set_border_width(GTK_CONTAINER(self_), 5);
+  SetBorderWidth(5);
   gtk_container_set_border_width(GTK_CONTAINER(content_area), 5);
   gtk_container_set_border_width(GTK_CONTAINER(combo_box), 5);
   
@@ -71,33 +71,3 @@ CGameDialog::~CGameDialog() {
 std::string CGameDialog::GetGameSelection() { 
   return game_;
 }
-
-#if 0
-void CGameDialog::OnSelchangeListGames() {
-  GetDlgItem(IDC_BUTTON_SELECT)->EnableWindow(true);
-
-  int nTemp;
-  nTemp = m_lbGames.GetCurSel();
-  if (nTemp == -1)
-    return;
-  else
-    m_lbGames.GetText(nTemp, m_sGame);
-}
-
-void CGameDialog::AddGameString(CString sGame) { m_lbGames.AddString(sGame); }
-
-void CGameDialog::OnButtonSelect() { OnOK(); }
-
-void CGameDialog::OnDblclkListGames() {
-  int nTemp;
-  nTemp = m_lbGames.GetCurSel();
-  if (nTemp == -1) return;
-
-  m_lbGames.GetText(nTemp, m_sGame);
-  OnOK();
-}
-
-void CGameDialog::OnSelcancelListGames() {
-  GetDlgItem(IDC_BUTTON_SELECT)->EnableWindow(false);
-}
-#endif
