@@ -527,6 +527,7 @@
     <ClInclude Include="GLPatchMeshRenderer.h" />
     <ClInclude Include="GLRenderPackage.h" />
     <ClInclude Include="GLWindowRenderer.h" />
+    <ClInclude Include="GtkWrapper.h" />
     <ClInclude Include="HalfLifeMapFile.h" />
     <ClInclude Include="HighlightComboBox.h" />
     <ClInclude Include="hlpakfile.h" />

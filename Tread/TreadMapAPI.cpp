@@ -62,10 +62,8 @@ CBaseTreadMapFile* CTreadMapAPI::GetFileReader(CString sTag, int nMagic, CTread3
 	{
 		Debug("... unkown game type, querying user...\n");
 
-#ifdef _WIN32
 		CGameDialog dlgTemp;
-
-		if(dlgTemp.DoModal() != GTK_RESPONSE_OK)
+		if(dlgTemp.Run() != GTK_RESPONSE_OK)
 			return false;
 
 		Debug("... setting game type\n");
@@ -86,9 +84,6 @@ CBaseTreadMapFile* CTreadMapAPI::GetFileReader(CString sTag, int nMagic, CTread3
 
 		CVisgroupView* pVisgroupView = (CVisgroupView*)GetView(VISGROUP_VIEW);
 		pVisgroupView->LoadVisgroup();
-#else
-		return false;
-#endif
 	}
 	else
 	{

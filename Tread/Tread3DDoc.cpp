@@ -1493,11 +1493,8 @@ BOOL CTread3DDoc::OnNewDocument()
 
 	if(GetMapManager()->GetMapCount() == 1)
 	{
-	
-#ifdef _WIN32
 		CGameDialog dlgTemp;
-
-		if(dlgTemp.DoModal() != GTK_RESPONSE_OK)
+		if(dlgTemp.Run() != GTK_RESPONSE_OK)
 			return false;
 
 		if(!GetGameAPI()->SetCurrentGame(dlgTemp.GetGameSelection()))
@@ -1529,8 +1526,6 @@ BOOL CTread3DDoc::OnNewDocument()
 
 		CVisgroupView* pVisgroupView = (CVisgroupView*)GetView(VISGROUP_VIEW);
 		pVisgroupView->LoadVisgroup();
-#endif
-
 	}
 
 	m_Header.m_sGame = GetGameAPI()->GetCurrentGame()->GetGameName();
