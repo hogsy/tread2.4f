@@ -68,7 +68,13 @@ CBaseTreadMapFile* CTreadMapAPI::GetFileReader(CString sTag, int nMagic, CTread3
 
 		Debug("... setting game type\n");
 
-		if(!GetGameAPI()->SetCurrentGame(dlgTemp.GetGameSelection()))
+    std::string game = dlgTemp.GetGameSelection();
+    if (game.empty()) {
+      Error("GetFileReader(): empty game string!\n");
+      return false;
+    }
+
+		if(!GetGameAPI()->SetCurrentGame(game.c_str()))
 		{
 			Error("SetGame(): failed!\n");
 			return false;

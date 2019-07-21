@@ -1497,7 +1497,12 @@ BOOL CTread3DDoc::OnNewDocument()
 		if(dlgTemp.Run() != GTK_RESPONSE_OK)
 			return false;
 
-		if(!GetGameAPI()->SetCurrentGame(dlgTemp.GetGameSelection()))
+    std::string game = dlgTemp.GetGameSelection();
+    if (game.empty()) {
+      return false;
+    }
+
+		if(!GetGameAPI()->SetCurrentGame(game.c_str()))
 			return false;
 
 		CLinkedList<GAMEPAKFILE>* m_pPakList = GetGameAPI()->GetCurrentGame()->GetPakFileList();
@@ -1514,7 +1519,7 @@ BOOL CTread3DDoc::OnNewDocument()
 				CGameSetupDialog setupDlg;
 				setupDlg.DoModal();
 
-				GetGameAPI()->SetCurrentGame(dlgTemp.GetGameSelection());
+				GetGameAPI()->SetCurrentGame(game.c_str());
 			}
 		}
 

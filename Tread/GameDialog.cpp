@@ -44,17 +44,22 @@ CGameDialog::CGameDialog(GtkWindow* pParent) : Dialog() {
         pGame->GetGameName().GetBuffer()
       );
     }
-    gtk_combo_box_set_active(GTK_COMBO_BOX(combo_box), 0);
   } else {
     Error("Invalid pointer to Game Definition List");
   }
   
   gtk_container_add(GTK_CONTAINER(content_area), combo_box);
-  gtk_container_set_border_width(GTK_CONTAINER(content_area), 5);
 
-  //g_signal_connect_swapped(self_, "response", G_CALLBACK(Destroy), this);
+  g_signal_connect(combo_box, "changed", G_CALLBACK(Changed), this);
+
+  // Ensure something is selected
+  gtk_combo_box_set_active(GTK_COMBO_BOX(combo_box), 0);
+
+  gtk_container_set_border_width(GTK_CONTAINER(self_), 5);
+  gtk_container_set_border_width(GTK_CONTAINER(content_area), 5);
+  gtk_container_set_border_width(GTK_CONTAINER(combo_box), 5);
   
-  SetDefaultSize(256, -1);
+  SetDefaultSize(512, -1);
   SetPosition(GTK_WIN_POS_CENTER);
 
   ShowAll();
@@ -63,8 +68,8 @@ CGameDialog::CGameDialog(GtkWindow* pParent) : Dialog() {
 CGameDialog::~CGameDialog() {
 }
 
-CString CGameDialog::GetGameSelection() { 
-  return m_sGame;
+std::string CGameDialog::GetGameSelection() { 
+  return game_;
 }
 
 #if 0
