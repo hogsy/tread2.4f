@@ -126,7 +126,7 @@
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <OutputFile>.\..\resources\plugins\lightpreview.dll</OutputFile>
+      <OutputFile>.\..\..\resources\plugins\lightpreview.dll</OutputFile>
       <ImportLibrary>.\Debug\lightpreview.lib</ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
