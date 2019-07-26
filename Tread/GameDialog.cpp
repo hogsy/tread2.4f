@@ -59,7 +59,7 @@ CGameDialog::CGameDialog(GtkWindow* pParent) : Dialog() {
   gtk_container_set_border_width(GTK_CONTAINER(content_area), 5);
   gtk_container_set_border_width(GTK_CONTAINER(combo_box), 5);
   
-  SetDefaultSize(512, -1);
+  SetDefaultSize(400, -1);
   SetPosition(GTK_WIN_POS_CENTER);
 
   ShowAll();
