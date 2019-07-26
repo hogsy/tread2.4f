@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tread3D", "Tread\Tread3D.vcxproj", "{3F412D83-026A-4466-BD4D-61E7E5A5DEB1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F10CF80C-D02C-4739-8B58-6E613525CB55} = {F10CF80C-D02C-4739-8B58-6E613525CB55}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CJ60Lib", "Tread\CJ60Lib\CJ60Lib\CJ60Lib.vcxproj", "{F10CF80C-D02C-4739-8B58-6E613525CB55}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lightpreview", "plugins\lightpreview\lightpreview.vcxproj", "{705C29E4-1336-4DF7-B1FB-9AFAFA1B061A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{5CF385D2-17F4-47C4-AA36-A1896F6E85ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F412D83-026A-4466-BD4D-61E7E5A5DEB1}.Debug|x86.ActiveCfg = Debug|Win32
+		{3F412D83-026A-4466-BD4D-61E7E5A5DEB1}.Debug|x86.Build.0 = Debug|Win32
+		{3F412D83-026A-4466-BD4D-61E7E5A5DEB1}.Release|x86.ActiveCfg = Release|Win32
+		{3F412D83-026A-4466-BD4D-61E7E5A5DEB1}.Release|x86.Build.0 = Release|Win32
+		{F10CF80C-D02C-4739-8B58-6E613525CB55}.Debug|x86.ActiveCfg = Debug|Win32
+		{F10CF80C-D02C-4739-8B58-6E613525CB55}.Debug|x86.Build.0 = Debug|Win32
+		{F10CF80C-D02C-4739-8B58-6E613525CB55}.Release|x86.ActiveCfg = Release|Win32
+		{F10CF80C-D02C-4739-8B58-6E613525CB55}.Release|x86.Build.0 = Release|Win32
+		{705C29E4-1336-4DF7-B1FB-9AFAFA1B061A}.Debug|x86.ActiveCfg = Debug|Win32
+		{705C29E4-1336-4DF7-B1FB-9AFAFA1B061A}.Debug|x86.Build.0 = Debug|Win32
+		{705C29E4-1336-4DF7-B1FB-9AFAFA1B061A}.Release|x86.ActiveCfg = Release|Win32
+		{705C29E4-1336-4DF7-B1FB-9AFAFA1B061A}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{705C29E4-1336-4DF7-B1FB-9AFAFA1B061A} = {5CF385D2-17F4-47C4-AA36-A1896F6E85ED}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {758A1EA0-B003-4343-BAFC-8C3C6DBBCC79}
+	EndGlobalSection
+EndGlobal
